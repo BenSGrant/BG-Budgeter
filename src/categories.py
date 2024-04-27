@@ -34,11 +34,10 @@ class CategoryManager:
         '''Intialises the category table. Make sure retrieveStoredCategories() is called before this'''
         columns = ["Expense", "Amount"]
         self.ui.categoryTable.setHorizontalHeaderLabels(columns)
-
         for key in self.categoryDict:
             if self.currentRowCount <= self.maxRowCount:
                 self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
-                self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(str(self.categoryDict[key])))
+                self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.categoryDict[key])))
                 self.currentRowCount += 1
 
 
@@ -52,7 +51,6 @@ class CategoryManager:
         name = self.ui.categoryNameInputLE.text()
         amount = self.ui.categoryAmountSpinBox.value()
         self.categoryDict[name] = amount
-        print(self.categoryDict)
         self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
         self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
         self.currentRowCount += 1
