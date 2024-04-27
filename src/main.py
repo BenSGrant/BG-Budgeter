@@ -14,6 +14,21 @@ class BGBudgeter(QDialog):
 
 
 
+    def loadHomePage(self):
+        ui.stackedWidget.setCurrentIndex(0)
+
+    def loadIncomePage(self):
+        ui.stackedWidget.setCurrentIndex(1)
+
+    def loadCategoryPage(self):
+        ui.stackedWidget.setCurrentIndex(2)
+
+    def loadOptionsPage(self):
+        ui.stackedWidget.setCurrentIndex(3)
+
+    def loadViewBudgetPage(self):
+        ui.stackedWidget.setCurrentIndex(4)
+
 
 if __name__ == "__main__":
     import sys
