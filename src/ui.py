@@ -253,9 +253,9 @@ class Ui_BGBudgeter(object):
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.categoryPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
         self.categoryBackButton.setText(_translate("BGBudgeter", "BACK"))
-        self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
+        self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Extra Options"))
         self.optionsBackButton.setText(_translate("BGBudgeter", "BACK"))
-        self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
+        self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  View Your Budget"))
         self.viewBudgetBackButton.setText(_translate("BGBudgeter", "BACK"))
 
 
