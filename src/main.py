@@ -1,4 +1,6 @@
 
+import os
+from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
 from categories import CategoryManager
@@ -12,6 +14,7 @@ class BGBudgeter(QDialog):
     
         ######################################################################### USER DEFINED METHODS/VARIABLES
         self.catMan = CategoryManager(self.ui)
+        self.fileHandler = FileHandler()
 
 
 
