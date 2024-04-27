@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>BG-Budgeter</string>
   </property>
   <widget class="QStackedWidget" name="stackedWidget">
    <property name="geometry">
@@ -467,7 +467,7 @@ QPushButton:pressed {
       <string>Fortnightly</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="timePeriodOptionLbl">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -569,6 +569,16 @@ QPushButton:pressed {
      </property>
      <property name="text">
       <string>BACK</string>
+     </property>
+    </widget>
+    <widget class="QTableWidget" name="budgetTable">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>880</width>
+       <height>450</height>
+      </rect>
      </property>
     </widget>
    </widget>
