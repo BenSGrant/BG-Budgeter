@@ -10,3 +10,4 @@ class BGBudgeter(QDialog):
         self.ui = Ui_BGBudgeterClass()
         self.ui.setupUi(self)
     
+        self.show()
