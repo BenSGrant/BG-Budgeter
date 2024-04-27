@@ -11,3 +11,15 @@ class BGBudgeter(QDialog):
         self.ui.setupUi(self)
     
         self.show()
+
+
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+
+    mns = BGBudgeter()
+    
+    sys.exit(app.exec_())
