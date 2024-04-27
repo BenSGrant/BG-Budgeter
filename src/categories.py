@@ -1,5 +1,6 @@
 
 from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtWidgets import QTableWidgetItem
 
 class CategoryManager:
     def __init__(self, dialog):
@@ -11,7 +12,8 @@ class CategoryManager:
 
         # ensure that the amount line edit only accepts numbers with up to 2 d.p and no text
         # range = 1 to 1 trillion
-        self.ui.categoryNameInputLE.setValidator(QDoubleValidator(0,1000000000000, 2))
+
+        self.categoryDict = {}
 
     # setup functions
     def setupTable(self):
@@ -27,6 +29,13 @@ class CategoryManager:
         #retrieve inputs
         name = self.ui.categoryNameInputLE.text()
         amount = self.ui.categoryAmountSpinBox.value()
+        self.categoryDict[name] = amount
+        print(self.categoryDict)
+        self.ui.categoryTable.setItem(self.ui.categoryTable.rowCount(), 0, QTableWidgetItem(name))
+        self.ui.categoryTable.setItem(self.ui.categoryTable.rowCount(), 1, QTableWidgetItem(amount))
+
+
+
 
     # other functions
 

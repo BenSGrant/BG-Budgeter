@@ -1,7 +1,5 @@
 
 from PyQt5.QtWidgets import QDialog
-from PyQt5.QtCore import Qt, QMutex
-from PyQt5.QtGui import QDoubleValidator
 
 from categories import CategoryManager
 from ui import *
