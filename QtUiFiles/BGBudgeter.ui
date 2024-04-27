@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BGBudgeterClass</class>
+ <widget class="QMainWindow" name="BGBudgeterClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>BGBudgeter</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(245, 245, 245);</string>
+    </property>
+    <widget class="QWidget" name="mainPage">
+     <property name="font">
+      <font>
+       <family>Bookman Old Style</family>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	background-color: rgb(220,220,220);
+	border-radius: 15px;
+}
+
+QPushButton:hover {
+	background-color: rgb(200,200,200);
+}
+
+QPushButton:pressed {
+	background-color: rgb(210,200,220);
+}
+</string>
+     </property>
+     <widget class="QLabel" name="mainTtl">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.75, y2:0.75, stop:0 rgba(0, 100, 255, 255), stop:1 rgba(200, 0, 255, 205));</string>
+      </property>
+      <property name="text">
+       <string>BG Budgeter - Home</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="incomePageButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>70</y>
+        <width>400</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Income Settings</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="categoryPageButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>180</y>
+        <width>400</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Expense and Savings Category Settings</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="optionsPageButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>290</y>
+        <width>400</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Other Budget Options</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="viewBudgetPageButton">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>400</y>
+        <width>400</width>
+        <height>100</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>View Budget</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mainPageInfoLbl">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>520</y>
+        <width>661</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="testButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>220</y>
+        <width>51</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Test</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="incomeSetPage">
+     <property name="font">
+      <font>
+       <family>Bahnschrift</family>
+      </font>
+     </property>
+     <widget class="QLabel" name="incomeSetTtl">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.75, y2:0.75, stop:0 rgba(0, 100, 255, 255), stop:1 rgba(200, 0, 255, 205));</string>
+      </property>
+      <property name="text">
+       <string>BG Budgeter - Income Settings</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="incomeInfoLbl1">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>760</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>10</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Income should include everything you wish to include in your budget, e.g. salary, loans, side income and even interest if you wish</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>780</width>
+        <height>360</height>
+       </rect>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>778</width>
+         <height>358</height>
+        </rect>
+       </property>
+       <widget class="QWidget" name="incomeWidget" native="true">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>750</width>
+          <height>80</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">border-radius: 10px;
+background-color: rgb(200,200,200);</string>
+        </property>
+        <widget class="QLineEdit" name="incomeInputLE">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>25</y>
+           <width>200</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid black;
+background-color: white;
+border-radius:5px;</string>
+         </property>
+        </widget>
+        <widget class="QComboBox" name="incomePeriodComboBox">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>25</y>
+           <width>200</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid black;
+background-color: white;
+border-radius: 5px;</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Annually</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Monthly</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Weekly</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Maintenance Loan (Total/year)</string>
+          </property>
+         </item>
+        </widget>
+        <widget class="QSpinBox" name="payOccurencesPerYear">
+         <property name="geometry">
+          <rect>
+           <x>520</x>
+           <y>25</y>
+           <width>80</width>
+           <height>30</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid black;
+background-color: white;
+border-radius:  5px;</string>
+         </property>
+         <property name="maximum">
+          <number>52</number>
+         </property>
+         <property name="value">
+          <number>52</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="removeButton">
+         <property name="geometry">
+          <rect>
+           <x>660</x>
+           <y>30</y>
+           <width>75</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">border: 1px solid black;
+border-radius: 5px;
+background-color: rgb(200,40,40);</string>
+         </property>
+         <property name="text">
+          <string>Remove</string>
+         </property>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="addIncomeButton">
+      <property name="geometry">
+       <rect>
+        <x>640</x>
+        <y>450</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(0,160,200);
+	border-style: solid;
+	border-color: rgb(0,85,95);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(0,140,180);
+	border-style: solid;
+	border-color: rgb(0,55,65);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(0, 120, 160);
+	border-style: solid;
+	border-color: rgb(0,45,55);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>Add income source</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="updateIncomeButton">
+      <property name="geometry">
+       <rect>
+        <x>325</x>
+        <y>550</y>
+        <width>150</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(0,150,110);
+	border-style: solid;
+	border-color: rgb(0,75,65);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(0,130,90);
+	border-style: solid;
+	border-color: rgb(0,45,35);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(0,110,70);
+	border-style: solid;
+	border-color: rgb(0,35,25);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>UPDATE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButtonIncomePage">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(100,150,250);
+	border-style: solid;
+	border-color: rgb(50,50,50);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(90,140,240);
+	border-style: solid;
+	border-color: rgb(30,30,30);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(70,120,220);
+	border-style: solid;
+	border-color: rgb(0,0,0);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>BACK</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="categoryPage">
+     <property name="font">
+      <font>
+       <family>Bookman Old Style</family>
+      </font>
+     </property>
+     <widget class="QLabel" name="categoryTtl">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.75, y2:0.75, stop:0 rgba(0, 100, 255, 255), stop:1 rgba(200, 0, 255, 205));</string>
+      </property>
+      <property name="text">
+       <string>BG Budgeter - Category Settings</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="categoryTable">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>100</y>
+        <width>800</width>
+        <height>410</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="categoryInputLE">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>700</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="addCategoryButton">
+      <property name="geometry">
+       <rect>
+        <x>720</x>
+        <y>60</y>
+        <width>70</width>
+        <height>30</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>11</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(6, 181, 114);
+border-radius: 5px;</string>
+      </property>
+      <property name="text">
+       <string>Add</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="categoryTipsLbl">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>520</y>
+        <width>780</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift Light</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Tips:
+- Any money you want to save per budget period should be included here
+  as a separate category</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButtonCategoryPage">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(100,150,250);
+	border-style: solid;
+	border-color: rgb(50,50,50);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(90,140,240);
+	border-style: solid;
+	border-color: rgb(30,30,30);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(70,120,220);
+	border-style: solid;
+	border-color: rgb(0,0,0);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>BACK</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="optionsPage">
+     <widget class="QLabel" name="otherOptionsTtl">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.75, y2:0.75, stop:0 rgba(0, 100, 255, 255), stop:1 rgba(200, 0, 255, 205));</string>
+      </property>
+      <property name="text">
+       <string>BG Budgeter - Other Options</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButtonOptionsPage">
+      <property name="geometry">
+       <rect>
+        <x>5</x>
+        <y>5</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(100,150,250);
+	border-style: solid;
+	border-color: rgb(50,50,50);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(90,140,240);
+	border-style: solid;
+	border-color: rgb(30,30,30);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(70,120,220);
+	border-style: solid;
+	border-color: rgb(0,0,0);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>BACK</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="viewBudgetPage">
+     <widget class="QLabel" name="otherOptionsTtl_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>800</width>
+        <height>50</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>21</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0.75, y2:0.75, stop:0 rgba(0, 100, 255, 255), stop:1 rgba(200, 0, 255, 205));</string>
+      </property>
+      <property name="text">
+       <string>BG Budgeter - Other Options</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButtonViewBudgetPage">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>40</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Bahnschrift</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton {
+	background-color: rgb(100,150,250);
+	border-style: solid;
+	border-color: rgb(50,50,50);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:hover {
+	background-color: rgb(90,140,240);
+	border-style: solid;
+	border-color: rgb(30,30,30);
+	border-radius: 6px;
+	border-width: 2px;
+}
+
+QPushButton:pressed {
+	background-color: rgb(70,120,220);
+	border-style: solid;
+	border-color: rgb(0,0,0);
+	border-radius: 6px;
+	border-width: 2px;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>BACK</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="BGBudgeter.qrc"/>
+ </resources>
+ <connections/>
+</ui>
