@@ -73,7 +73,7 @@
       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(250, 200, 50, 255), stop:1 rgba(255, 80, 100, 255));</string>
      </property>
      <property name="text">
-      <string>BG-Budgeter</string>
+      <string>BG-Budgeter  -  Set Your Income Sources</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
