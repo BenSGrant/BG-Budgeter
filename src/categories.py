@@ -45,7 +45,7 @@ class CategoryManager:
     def addTen(self):
         '''add 10 to the spinbox value'''
         currentAmount = self.ui.categoryAmountSpinBox.value()
-        if currentAmount +10.0 <= self.ui.categoryAmountSpinBox.maximum():
+        if currentAmount + 10.0 <= self.ui.categoryAmountSpinBox.maximum():
             self.ui.categoryAmountSpinBox.setValue(currentAmount + 10.0)
 
     def subTen(self):
@@ -57,7 +57,7 @@ class CategoryManager:
     def addHundred(self):
         '''add 100 to the spinbox value'''
         currentAmount = self.ui.categoryAmountSpinBox.value()
-        if currentAmount +100.0 <= self.ui.categoryAmountSpinBox.maximum():
+        if currentAmount + 100.0 <= self.ui.categoryAmountSpinBox.maximum():
             self.ui.categoryAmountSpinBox.setValue(currentAmount + 100.0)
 
     def subHundred(self):
