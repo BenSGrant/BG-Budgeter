@@ -12,22 +12,28 @@ class BGBudgeter(QDialog):
     
         self.show()
 
-    
+    def setupPageButtons(self):
+        self.ui.incomePageButton.clicked.connect(self.loadIncomePage)
+        self.ui.categoryPageButton.clicked.connect(self.loadCategoryPage)
+        self.ui.optionsPageButton.clicked.connect(self.loadOptionsPage)
+        self.ui.viewBudgetPageButton.clicked.connect(self.loadViewBudgetPage)
+
+
 
     def loadHomePage(self):
-        ui.stackedWidget.setCurrentIndex(0)
+        self.ui.stackedWidget.setCurrentIndex(0)
 
     def loadIncomePage(self):
-        ui.stackedWidget.setCurrentIndex(1)
+        self.ui.stackedWidget.setCurrentIndex(1)
 
     def loadCategoryPage(self):
-        ui.stackedWidget.setCurrentIndex(2)
+        self.ui.stackedWidget.setCurrentIndex(2)
 
     def loadOptionsPage(self):
-        ui.stackedWidget.setCurrentIndex(3)
+        self.ui.stackedWidget.setCurrentIndex(3)
 
     def loadViewBudgetPage(self):
-        ui.stackedWidget.setCurrentIndex(4)
+        self.ui.stackedWidget.setCurrentIndex(4)
 
 
 if __name__ == "__main__":
