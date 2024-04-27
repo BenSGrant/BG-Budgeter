@@ -35,11 +35,10 @@ class FileHandler:
             File saving convention:
             
             categories:
-            name,amount \\n
+            name,amount|name,amount
 
             income:
-            amount,period,occurences \\n
-
+            amount,period,occurences|amount,period,occurences
         '''
         if isCategoriesFile:
             fileObj = open(self.categoriesPath, 'w')
@@ -77,15 +76,17 @@ class FileHandler:
     
     def retrieveCategoriesData(self):
         '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present'''
-        data = self.getData(True)
+        data = self.getData(True)[0] # remove [0] if you change it back to \n separation again
+        print(data)
         dictToReturn = {}
         if data is not None:
-            pairs = data[0].split("\n")
+            pairs = data.split('|') # separated into name,amount pairs
             for pair in pairs:
-                splitPair = pair.split(",")
+                splitPair = pair.split(",") # separated into name and amount elements
                 key = splitPair[0]
-                val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float
+                val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float to 2dp
                 dictToReturn[key] = val
+                print(dictToReturn)
             return dictToReturn
         else:
             return None
@@ -94,4 +95,4 @@ class FileHandler:
         # retrieve or overwrite data first before doing this depending on how this is handled in the CategoryManager class
         
         for key in dictionary:
-            self.appendData(str(key) + "," + str(dictionary[key]) + "\n")
+            self.appendData(str(key) + "," + str(dictionary[key]) + "|")
