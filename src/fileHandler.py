@@ -91,7 +91,7 @@ class FileHandler:
             return None
 
     def saveCategoriesData(self, dictionary):
-        # retrieve data first before doing this
+        # retrieve or overwrite data first before doing this depending on how this is handled in the CategoryManager class
         
         for key in dictionary:
             self.appendData(str(key) + "," + str(dictionary[key]) + "\n")
