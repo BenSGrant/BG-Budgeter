@@ -2,6 +2,7 @@
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import Qt, QMutex
 
+from categories import CategoryManager
 from ui import *
 
 class BGBudgeter(QDialog):
@@ -12,12 +13,16 @@ class BGBudgeter(QDialog):
     
         ######################################################################### USER DEFINED METHODS/VARIABLES
         self.setupPageButtons()
+        self.catMan = CategoryManager()
+
+
+
         ######################################################################### 
         # show ui
         self.show()
 
     def setupPageButtons(self):
-        '''Links up the UI buttons that deal with page switching to their functionalities'''
+        '''Connects page switchings buttons to their actions'''
         #home page buttons
         self.ui.incomePageButton.clicked.connect(self.loadIncomePage)
         self.ui.categoryPageButton.clicked.connect(self.loadCategoryPage)
@@ -31,6 +36,9 @@ class BGBudgeter(QDialog):
         self.ui.viewBudgetBackButton.clicked.connect(self.loadHomePage)
 
 
+    def setupCategoryPageButtons(self):
+        '''Connects expense category page buttons to their actions'''
+        self.ui.addCategoryButton.clicked.connect(self.catMan.onAddCategory)
 
 
     ################## LOAD PAGES ##################
