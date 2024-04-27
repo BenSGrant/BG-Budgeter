@@ -13,10 +13,13 @@ class BGBudgeter(QDialog):
         self.show()
 
     def setupPageButtons(self):
+        #home page buttons
         self.ui.incomePageButton.clicked.connect(self.loadIncomePage)
         self.ui.categoryPageButton.clicked.connect(self.loadCategoryPage)
         self.ui.optionsPageButton.clicked.connect(self.loadOptionsPage)
         self.ui.viewBudgetPageButton.clicked.connect(self.loadViewBudgetPage)
+
+
 
 
 
