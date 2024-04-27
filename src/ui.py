@@ -99,13 +99,13 @@ class Ui_BGBudgeter(object):
         self.incomePageTtl.setAlignment(QtCore.Qt.AlignCenter)
         self.incomePageTtl.setObjectName("incomePageTtl")
         self.incomeSourcesScrollArea = QtWidgets.QScrollArea(self.incomeInputPage)
-        self.incomeSourcesScrollArea.setGeometry(QtCore.QRect(10, 110, 880, 340))
+        self.incomeSourcesScrollArea.setGeometry(QtCore.QRect(10, 70, 880, 380))
         self.incomeSourcesScrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.incomeSourcesScrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.incomeSourcesScrollArea.setWidgetResizable(True)
         self.incomeSourcesScrollArea.setObjectName("incomeSourcesScrollArea")
         self.incomeScrollAreaContents = QtWidgets.QWidget()
-        self.incomeScrollAreaContents.setGeometry(QtCore.QRect(0, 0, 857, 338))
+        self.incomeScrollAreaContents.setGeometry(QtCore.QRect(0, 0, 857, 378))
         self.incomeScrollAreaContents.setObjectName("incomeScrollAreaContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.incomeScrollAreaContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -167,7 +167,7 @@ class Ui_BGBudgeter(object):
 "")
         self.categoryBackButton.setObjectName("categoryBackButton")
         self.categoryTable = QtWidgets.QTableWidget(self.categoryPage)
-        self.categoryTable.setGeometry(QtCore.QRect(10, 110, 880, 340))
+        self.categoryTable.setGeometry(QtCore.QRect(10, 110, 880, 480))
         self.categoryTable.setObjectName("categoryTable")
         self.categoryTable.setColumnCount(0)
         self.categoryTable.setRowCount(0)
@@ -176,6 +176,24 @@ class Ui_BGBudgeter(object):
         self.categoryNameInputLE.setObjectName("categoryNameInputLE")
         self.addCategoryButton = QtWidgets.QPushButton(self.categoryPage)
         self.addCategoryButton.setGeometry(QtCore.QRect(730, 65, 160, 40))
+        self.addCategoryButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(100,200,100);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85,185,85);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(60,160,60);\n"
+"    border-color: black;\n"
+"}\n"
+"")
         self.addCategoryButton.setObjectName("addCategoryButton")
         self.stackedWidget.addWidget(self.categoryPage)
         self.optionsPage = QtWidgets.QWidget()
