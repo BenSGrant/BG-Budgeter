@@ -14,7 +14,7 @@ class BGBudgeter(QDialog):
     
         ######################################################################### USER DEFINED METHODS/VARIABLES
         self.catMan = CategoryManager(self.ui)
-        self.fileHandler = FileHandler()
+        self.fileHand = FileHandler()
 
 
         self.setupPageButtons()

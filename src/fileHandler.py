@@ -84,7 +84,7 @@ class FileHandler:
             for pair in pairs:
                 splitPair = pair.split(",")
                 key = splitPair[0]
-                val = splitPair[1]
+                val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float
                 dictToReturn[key] = val
             return dictToReturn
         else:

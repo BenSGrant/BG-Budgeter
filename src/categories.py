@@ -1,10 +1,20 @@
 
 from PyQt5.QtGui import QDoubleValidator
 from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView
+from fileHandler import FileHandler
 
 class CategoryManager:
     def __init__(self, dialog):
         self.ui = dialog
+
+        ## objects
+        self.fileHand = FileHandler()
+
+        ## variables
+        self.categoryDict = {}
+
+        # initialise data
+        self.retrieveStoredCategories()
 
         # setup the categories table
         self.maxRowCount=30
@@ -14,13 +24,23 @@ class CategoryManager:
         self.currentRowCount = 0
         self.setupTable()
 
-
-        self.categoryDict = {}
-
     # setup functions
+    def retrieveStoredCategories(self):
+        '''Retrieves the save data and stores it in a dictionary'''
+        self.categoryDict = self.fileHand.retrieveCategoriesData()
+
+
     def setupTable(self):
+        '''Intialises the category table. Make sure retrieveStoredCategories() is called before this'''
         columns = ["Expense", "Amount"]
         self.ui.categoryTable.setHorizontalHeaderLabels(columns)
+
+        for key in self.categoryDict:
+            if self.currentRowCount <= self.maxRowCount:
+                self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
+                self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(str(self.categoryDict[key])))
+                self.currentRowCount += 1
+
 
     # functions tied to an event
     def onCellClicked(self):
