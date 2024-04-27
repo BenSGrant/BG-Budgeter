@@ -44,7 +44,7 @@ QPushButton:pressed {
        <x>0</x>
        <y>0</y>
        <width>900</width>
-       <height>40</height>
+       <height>60</height>
       </rect>
      </property>
      <property name="font">
@@ -69,9 +69,9 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>459</y>
+       <y>479</y>
        <width>850</width>
-       <height>131</height>
+       <height>111</height>
       </rect>
      </property>
      <property name="text">
@@ -82,7 +82,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>60</y>
+       <y>80</y>
        <width>350</width>
        <height>80</height>
       </rect>
@@ -103,7 +103,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>160</y>
+       <y>180</y>
        <width>350</width>
        <height>80</height>
       </rect>
@@ -124,7 +124,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>260</y>
+       <y>280</y>
        <width>350</width>
        <height>80</height>
       </rect>
@@ -145,7 +145,7 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>275</x>
-       <y>360</y>
+       <y>380</y>
        <width>350</width>
        <height>80</height>
       </rect>
