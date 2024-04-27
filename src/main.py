@@ -10,6 +10,9 @@ class BGBudgeter(QDialog):
         self.ui = Ui_BGBudgeter()
         self.ui.setupUi(self)
     
+        #########################################################################
+        self.setupPageButtons()
+        #########################################################################
         self.show()
 
     def setupPageButtons(self):
