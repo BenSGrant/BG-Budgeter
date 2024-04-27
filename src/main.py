@@ -17,7 +17,6 @@ class BGBudgeter(QDialog):
         self.fileHandler = FileHandler()
 
 
-
         self.setupPageButtons()
         self.setupCategoryPageButtons()
         ######################################################################### 
