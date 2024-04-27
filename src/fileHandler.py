@@ -27,8 +27,10 @@ class FileHandler:
                 f.close()
 
 
-    def overwrite(self,data):
+    def overwrite(self, isCategoriesFile, data):
         '''completely replace all text in the document.
+
+            if isCategoriesFile is false, then income file will be assumed
 
             File saving convention:
             
@@ -40,11 +42,36 @@ class FileHandler:
             amount,period,occurences \\n
 
         '''
+        if isCategoriesFile:
+            fileObj = open(self.categoriesPath, 'w')
+            fileObj.write(data)
+            fileObj.close()
+        else:
+            fileObj = open(self.incomePath, 'w')
+            fileObj.write(data)
+            fileObj.close()
 
-    def appendData(self,data):
-        '''add text to the document'''
+    def appendData(self,isCategoriesFile,data):
+        '''add text to the document
+        
+            if isCategoriesFile is false, then income file will be assumed'''
+        if isCategoriesFile:
+            fileObj = open(self.categoriesPath, 'a')
+            fileObj.write(data)
+            fileObj.close()
+        else:
+            fileObj = open(self.incomePath, 'a')
+            fileObj.write(data)
+            fileObj.close()
+        
 
-    def getData(self, file):
-        '''retrieve data from document, filter through this raw data as you please'''
-        fileObj = open(self.dirPath + file, 'r')
-        return fileObj.readlines()
+    def getData(self, isCategoriesFile):
+        '''retrieve data from document, filter through this raw data as you please.
+        
+            if isCategoriesFile is false, then income file will be assumed'''
+        if isCategoriesFile:
+            fileObj = open(self.categoriesPath, 'r')
+            return fileObj.readlines()
+        else:
+            fileObj = open(self.incomePath, 'r')
+            return fileObj.readlines()
