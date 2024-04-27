@@ -12,7 +12,7 @@ class BGBudgeter(QDialog):
     
         self.show()
 
-
+    
 
     def loadHomePage(self):
         ui.stackedWidget.setCurrentIndex(0)
