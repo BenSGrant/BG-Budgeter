@@ -7,7 +7,7 @@ from ui import *
 class BGBudgeter(QDialog):
     def __init__(self):
         super(QDialog, self).__init__()
-        self.ui = Ui_BGBudgeterClass()
+        self.ui = Ui_BGBudgeter()
         self.ui.setupUi(self)
     
         self.show()
