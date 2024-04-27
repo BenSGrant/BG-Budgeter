@@ -27,7 +27,7 @@ class FileHandler:
                 f.close()
 
 
-    def overwrite(self, isCategoriesFile, data):
+    def overwrite(self, isCategoriesFile: bool, data):
         '''completely replace all text in the document.
 
             if isCategoriesFile is false, then income file will be assumed
@@ -51,7 +51,7 @@ class FileHandler:
             fileObj.write(data)
             fileObj.close()
 
-    def appendData(self,isCategoriesFile,data):
+    def appendData(self,isCategoriesFile: bool,data):
         '''add text to the document
         
             if isCategoriesFile is false, then income file will be assumed'''
@@ -65,7 +65,7 @@ class FileHandler:
             fileObj.close()
         
 
-    def getData(self, isCategoriesFile):
+    def getData(self, isCategoriesFile: bool):
         '''retrieve data from document, filter through this raw data as you please.
         
             if isCategoriesFile is false, then income file will be assumed'''
