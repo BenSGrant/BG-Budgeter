@@ -10,12 +10,14 @@ class BGBudgeter(QDialog):
         self.ui = Ui_BGBudgeter()
         self.ui.setupUi(self)
     
-        #########################################################################
+        ######################################################################### USER DEFINED METHODS/VARIABLES
         self.setupPageButtons()
-        #########################################################################
+        ######################################################################### 
+        # show ui
         self.show()
 
     def setupPageButtons(self):
+        '''Links up the UI buttons that deal with page switching to their functionalities'''
         #home page buttons
         self.ui.incomePageButton.clicked.connect(self.loadIncomePage)
         self.ui.categoryPageButton.clicked.connect(self.loadCategoryPage)
@@ -30,6 +32,8 @@ class BGBudgeter(QDialog):
 
 
 
+
+    ################## LOAD PAGES ##################
 
     def loadHomePage(self):
         self.ui.stackedWidget.setCurrentIndex(0)
