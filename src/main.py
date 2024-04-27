@@ -1,6 +1,7 @@
 
 from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import Qt, QMutex
+from PyQt5.QtGui import QDoubleValidator
 
 from categories import CategoryManager
 from ui import *
@@ -12,11 +13,12 @@ class BGBudgeter(QDialog):
         self.ui.setupUi(self)
     
         ######################################################################### USER DEFINED METHODS/VARIABLES
-        self.setupPageButtons()
         self.catMan = CategoryManager(self.ui)
 
 
 
+        self.setupPageButtons()
+        self.setupCategoryPageButtons()
         ######################################################################### 
         # show ui
         self.show()

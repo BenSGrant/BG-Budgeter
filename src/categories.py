@@ -1,5 +1,5 @@
 
-from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView, QAbstractItemView
+from PyQt5.QtGui import QDoubleValidator
 
 class CategoryManager:
     def __init__(self, dialog):
@@ -7,6 +7,11 @@ class CategoryManager:
 
         # setup the categories table
         self.ui.categoryTable.setColumnCount(2)
+        self.setupTable()
+
+        # ensure that the amount line edit only accepts numbers with up to 2 d.p and no text
+        # range = 1 to 1 trillion
+        self.ui.categoryNameInputLE.setValidator(QDoubleValidator(0,1000000000000, 2))
 
 
     def setupTable(self):
@@ -19,4 +24,3 @@ class CategoryManager:
     def onAddCategory(self):
         '''When the add button is clicked, a category is added to the table'''
         name = self.ui.categoryNameInputLE.text()
-        print(name)
