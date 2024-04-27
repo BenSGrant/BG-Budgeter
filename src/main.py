@@ -19,6 +19,11 @@ class BGBudgeter(QDialog):
         self.ui.optionsPageButton.clicked.connect(self.loadOptionsPage)
         self.ui.viewBudgetPageButton.clicked.connect(self.loadViewBudgetPage)
 
+        # back to home page buttons
+        self.ui.incomeBackButton.clicked.connect(self.loadHomePage)
+        self.ui.categoryBackButton.clicked.connect(self.loadHomePage)
+        self.ui.optionsBackButton.clicked.connect(self.loadHomePage)
+        self.ui.viewBudgetBackButton.clicked.connect(self.loadHomePage)
 
 
 

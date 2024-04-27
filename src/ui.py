@@ -132,6 +132,111 @@ class Ui_BGBudgeter(object):
 "")
         self.incomeBackButton.setObjectName("incomeBackButton")
         self.stackedWidget.addWidget(self.incomeInputPage)
+        self.categoryPage = QtWidgets.QWidget()
+        self.categoryPage.setObjectName("categoryPage")
+        self.categoryPageTtl = QtWidgets.QLabel(self.categoryPage)
+        self.categoryPageTtl.setGeometry(QtCore.QRect(0, 0, 900, 60))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.categoryPageTtl.setFont(font)
+        self.categoryPageTtl.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(250, 200, 50, 255), stop:1 rgba(255, 80, 100, 255));")
+        self.categoryPageTtl.setAlignment(QtCore.Qt.AlignCenter)
+        self.categoryPageTtl.setObjectName("categoryPageTtl")
+        self.categoryBackButton = QtWidgets.QPushButton(self.categoryPage)
+        self.categoryBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
+        self.categoryBackButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,100,0);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(225,75,0);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(200,50,0);\n"
+"    border-color: black;\n"
+"}\n"
+"")
+        self.categoryBackButton.setObjectName("categoryBackButton")
+        self.stackedWidget.addWidget(self.categoryPage)
+        self.optionsPage = QtWidgets.QWidget()
+        self.optionsPage.setObjectName("optionsPage")
+        self.optionsPageTtl = QtWidgets.QLabel(self.optionsPage)
+        self.optionsPageTtl.setGeometry(QtCore.QRect(0, 0, 900, 60))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.optionsPageTtl.setFont(font)
+        self.optionsPageTtl.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(250, 200, 50, 255), stop:1 rgba(255, 80, 100, 255));")
+        self.optionsPageTtl.setAlignment(QtCore.Qt.AlignCenter)
+        self.optionsPageTtl.setObjectName("optionsPageTtl")
+        self.optionsBackButton = QtWidgets.QPushButton(self.optionsPage)
+        self.optionsBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
+        self.optionsBackButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,100,0);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(225,75,0);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(200,50,0);\n"
+"    border-color: black;\n"
+"}\n"
+"")
+        self.optionsBackButton.setObjectName("optionsBackButton")
+        self.stackedWidget.addWidget(self.optionsPage)
+        self.viewBudgetPage = QtWidgets.QWidget()
+        self.viewBudgetPage.setObjectName("viewBudgetPage")
+        self.viewBudgetPageTtl = QtWidgets.QLabel(self.viewBudgetPage)
+        self.viewBudgetPageTtl.setGeometry(QtCore.QRect(0, 0, 900, 60))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.viewBudgetPageTtl.setFont(font)
+        self.viewBudgetPageTtl.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(250, 200, 50, 255), stop:1 rgba(255, 80, 100, 255));")
+        self.viewBudgetPageTtl.setAlignment(QtCore.Qt.AlignCenter)
+        self.viewBudgetPageTtl.setObjectName("viewBudgetPageTtl")
+        self.viewBudgetBackButton = QtWidgets.QPushButton(self.viewBudgetPage)
+        self.viewBudgetBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
+        self.viewBudgetBackButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,100,0);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(225,75,0);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(200,50,0);\n"
+"    border-color: black;\n"
+"}\n"
+"")
+        self.viewBudgetBackButton.setObjectName("viewBudgetBackButton")
+        self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
@@ -144,8 +249,14 @@ class Ui_BGBudgeter(object):
         self.categoryPageButton.setText(_translate("BGBudgeter", "Expense Category Settings"))
         self.optionsPageButton.setText(_translate("BGBudgeter", "Extra Options"))
         self.viewBudgetPageButton.setText(_translate("BGBudgeter", "View Budget"))
-        self.incomePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Set Your Income Sources"))
+        self.incomePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Income Sources"))
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.categoryPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
+        self.categoryBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
+        self.optionsBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
+        self.viewBudgetBackButton.setText(_translate("BGBudgeter", "BACK"))
 
 
 if __name__ == "__main__":
