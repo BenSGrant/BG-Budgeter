@@ -69,13 +69,97 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>25</x>
-       <y>540</y>
+       <y>459</y>
        <width>850</width>
-       <height>50</height>
+       <height>131</height>
       </rect>
      </property>
      <property name="text">
       <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="incomePageButton">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>60</y>
+       <width>350</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Income</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="categoryPageButton">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>160</y>
+       <width>350</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Expense Category Settings</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="optionsPageButton">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>260</y>
+       <width>350</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Extra Options</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="viewBudgetPageButton">
+     <property name="geometry">
+      <rect>
+       <x>275</x>
+       <y>360</y>
+       <width>350</width>
+       <height>80</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>10</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>View Budget</string>
      </property>
     </widget>
    </widget>
