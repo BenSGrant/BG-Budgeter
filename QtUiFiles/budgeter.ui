@@ -431,6 +431,84 @@ QPushButton:pressed {
       <string>BACK</string>
      </property>
     </widget>
+    <widget class="QRadioButton" name="weeklyBudgetRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Weekly</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="fortnightlyBudgetRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>125</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Fortnightly</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>70</y>
+       <width>150</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Budget Time Period</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="monthlyBudgetRadioButton">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>100</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Monthly</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="viewBudgetPage">
     <widget class="QLabel" name="viewBudgetPageTtl">
