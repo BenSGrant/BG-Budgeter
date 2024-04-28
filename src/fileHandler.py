@@ -77,7 +77,6 @@ class FileHandler:
     def retrieveCategoriesData(self):
         '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present'''
         data = self.getData(True)[0] # remove [0] if you change it back to \n separation again
-        print(data)
         dictToReturn = {}
         if data is not None:
             pairs = data.split('|') # separated into name,amount pairs
@@ -86,7 +85,6 @@ class FileHandler:
                 key = splitPair[0]
                 val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float to 2dp
                 dictToReturn[key] = val
-                print(dictToReturn)
             return dictToReturn
         else:
             return None
