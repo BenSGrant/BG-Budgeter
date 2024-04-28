@@ -52,6 +52,7 @@ class CategoryManager:
         del self.categoryDict[categoryName] # delete from the dictionary
         self.fileHand.saveCategoriesData(self.categoryDict)
         self.ui.categoryTable.removeRow(row)
+        self.currentRowCount -= 1 # make sure that current row pointer points to the first empty one
         
 
     def onAddCategory(self):
