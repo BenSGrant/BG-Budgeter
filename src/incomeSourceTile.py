@@ -180,3 +180,10 @@ class IncomeSourceTile:
 
         self.removeIncomeButton.setObjectName("removeIncomeButton")
         verticalLayout.addWidget(self.incomeSourceParentWidget)
+
+
+
+
+    def onAddHundred(self):
+        if self.incomeAmountSpinBox + 100 <= self.incomeAmountSpinBox.maximum():
+            self.incomeAmountSpinBox.setValue(self.incomeAmountSpinBox.value() + 100)
