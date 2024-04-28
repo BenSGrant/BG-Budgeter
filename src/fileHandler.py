@@ -12,6 +12,8 @@ class FileHandler:
 
         self.ensureFilesExist()
     
+    # SETUP
+
     def ensureFilesExist(self):
         '''This function checks if save data files do not exist, then creates them if that is the case.'''
         if not os.path.exists(self.categoriesPath):
@@ -26,6 +28,8 @@ class FileHandler:
                 f.write("")
                 f.close()
 
+
+    ### GENERAL
 
     def overwrite(self, isCategoriesFile: bool, data):
         '''Completely replace all text in the document.
@@ -74,6 +78,9 @@ class FileHandler:
             fileObj = open(self.incomePath, 'r')
             return fileObj.readlines()
     
+
+    ## CATEGORY FILE SPECIFICS
+
     def retrieveCategoriesData(self):
         '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present'''
         data = self.getData(True)[0] # remove [0] if you change it back to \n separation again
@@ -105,3 +112,40 @@ class FileHandler:
             i+=1
 
         print("Expense category data saved")
+
+
+    ## INCOME FILE SPECIFICS
+
+    def retrieveIncomeData(self):
+        '''Takes all data from the file and puts it back into list of tuples form. Returns None if there is no data present'''
+        data = self.getData(False)[0] # remove [0] if you change it back to \n separation again
+        listToReturn = []
+        if data is not None:
+            pairs = data.split('|') # separated into amount,period,occcurences pairs
+            for pair in pairs:
+                splitPair = pair.split(",") # separated into amount, period and occurences elements
+                amount = int(splitPair[0])
+                period = str(splitPair[1])
+                occurences = int(splitPair[2])
+                listToReturn.append((amount, period, occurences))
+            return listToReturn
+        else:
+            return None
+
+    def saveIncomeData(self, list):
+        '''Completely overwrites income file with the new data in the list'''
+        #clear file first
+        self.overwrite(False, "")
+        print("Cleared income save file")
+        i = 0
+        print("Saving new income data")
+        for item in list:
+            # the last element in the list that is being saved should not have a | after it
+            if (i+1) >= len(list):
+                self.appendData(False, str(item[0]) + "," + str(item[1]) + "," + str(item[2]))
+            else:
+                self.appendData(False, str(item[0]) + "," + str(item[1]) + "," + str(item[2]) + "|")
+            i+=1
+
+        print("Income data saved")
+
