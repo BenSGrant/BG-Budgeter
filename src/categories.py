@@ -50,6 +50,8 @@ class CategoryManager:
         categoryName = self.ui.categoryTable.item(row, 0).text() # retrieve text from left column
         del self.categoryDict[categoryName] # delete from the dictionary
         self.fileHand.saveCategoriesData(self.categoryDict)
+        self.ui.categoryTable.removeRow(row)
+        
 
     def onAddCategory(self):
         '''When the add button is clicked, a category is added to the table'''
