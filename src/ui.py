@@ -374,7 +374,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
