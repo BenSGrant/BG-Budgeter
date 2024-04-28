@@ -109,7 +109,6 @@ class Ui_BGBudgeter(object):
         self.incomeScrollAreaContents.setObjectName("incomeScrollAreaContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.incomeScrollAreaContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
-        
         self.incomeSourcesScrollArea.setWidget(self.incomeScrollAreaContents)
         self.incomeBackButton = QtWidgets.QPushButton(self.incomeInputPage)
         self.incomeBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
@@ -375,7 +374,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -387,7 +386,6 @@ class Ui_BGBudgeter(object):
         self.optionsPageButton.setText(_translate("BGBudgeter", "Extra Options"))
         self.viewBudgetPageButton.setText(_translate("BGBudgeter", "View Budget"))
         self.incomePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Income Sources"))
-       
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.addIncomeButton.setText(_translate("BGBudgeter", "Add Income Source"))
         self.updateIncomeButton.setText(_translate("BGBudgeter", "UPDATE"))
