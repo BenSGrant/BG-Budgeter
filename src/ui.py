@@ -109,6 +109,158 @@ class Ui_BGBudgeter(object):
         self.incomeScrollAreaContents.setObjectName("incomeScrollAreaContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.incomeScrollAreaContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.incomeSourceParentWidget = QtWidgets.QWidget(self.incomeScrollAreaContents)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.incomeSourceParentWidget.sizePolicy().hasHeightForWidth())
+        self.incomeSourceParentWidget.setSizePolicy(sizePolicy)
+        self.incomeSourceParentWidget.setMinimumSize(QtCore.QSize(835, 100))
+        self.incomeSourceParentWidget.setStyleSheet("background-color: rgb(214, 214, 214);")
+        self.incomeSourceParentWidget.setObjectName("incomeSourceParentWidget")
+        self.incomeAmountSpinBox = QtWidgets.QDoubleSpinBox(self.incomeSourceParentWidget)
+        self.incomeAmountSpinBox.setGeometry(QtCore.QRect(5, 35, 140, 50))
+        self.incomeAmountSpinBox.setStyleSheet("border-style: solid;\n"
+"border-color: black;\n"
+"border-radius: 5px;\n"
+"border-width: 1px;\n"
+"background-color: rgb(250,250,250);\n"
+"")
+        self.incomeAmountSpinBox.setMaximum(1000000.0)
+        self.incomeAmountSpinBox.setProperty("value", 30000.0)
+        self.incomeAmountSpinBox.setObjectName("incomeAmountSpinBox")
+        self.incomeAmountLbl = QtWidgets.QLabel(self.incomeSourceParentWidget)
+        self.incomeAmountLbl.setGeometry(QtCore.QRect(10, 10, 101, 20))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(8)
+        self.incomeAmountLbl.setFont(font)
+        self.incomeAmountLbl.setObjectName("incomeAmountLbl")
+        self.incomePeriodComboBox = QtWidgets.QComboBox(self.incomeSourceParentWidget)
+        self.incomePeriodComboBox.setGeometry(QtCore.QRect(280, 35, 151, 50))
+        self.incomePeriodComboBox.setStyleSheet("border-style: solid;\n"
+"border-color: black;\n"
+"border-radius: 5px;\n"
+"border-width: 1px;\n"
+"background-color: white;\n"
+"")
+        self.incomePeriodComboBox.setObjectName("incomePeriodComboBox")
+        self.incomePeriodComboBox.addItem("")
+        self.incomePeriodComboBox.addItem("")
+        self.incomePeriodComboBox.addItem("")
+        self.incomePeriodComboBox.addItem("")
+        self.incomePeriodComboBox.addItem("")
+        self.incomeAdd100Button = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.incomeAdd100Button.setGeometry(QtCore.QRect(160, 35, 50, 25))
+        self.incomeAdd100Button.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(75,175,0);\n"
+"\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(35,155,0);\n"
+"\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(15,135,0);\n"
+"\n"
+"}")
+        self.incomeAdd100Button.setObjectName("incomeAdd100Button")
+        self.incomeMinus100Button = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.incomeMinus100Button.setGeometry(QtCore.QRect(160, 60, 50, 25))
+        self.incomeMinus100Button.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,175,0);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(230,155,0);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(210,135,0);\n"
+"\n"
+"}")
+        self.incomeMinus100Button.setObjectName("incomeMinus100Button")
+        self.incomeAdd1000Button = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.incomeAdd1000Button.setGeometry(QtCore.QRect(210, 35, 50, 25))
+        self.incomeAdd1000Button.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(125,225,0);\n"
+"\n"
+"}\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(105,205,0);\n"
+"\n"
+"}\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(85,185,0);\n"
+"\n"
+"}")
+        self.incomeAdd1000Button.setObjectName("incomeAdd1000Button")
+        self.incomeMinus1000Button = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.incomeMinus1000Button.setGeometry(QtCore.QRect(210, 60, 50, 25))
+        self.incomeMinus1000Button.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,100,0);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(230,80,0);\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(210,60,0);\n"
+"\n"
+"}")
+        self.incomeMinus1000Button.setObjectName("incomeMinus1000Button")
+        self.incomePeriodLbl = QtWidgets.QLabel(self.incomeSourceParentWidget)
+        self.incomePeriodLbl.setGeometry(QtCore.QRect(280, 10, 151, 20))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(8)
+        self.incomePeriodLbl.setFont(font)
+        self.incomePeriodLbl.setObjectName("incomePeriodLbl")
+        self.incomeOccurencesSpinBox = QtWidgets.QSpinBox(self.incomeSourceParentWidget)
+        self.incomeOccurencesSpinBox.setGeometry(QtCore.QRect(470, 40, 111, 41))
+        self.incomeOccurencesSpinBox.setStyleSheet("border-style: solid;\n"
+"border-color: black;\n"
+"border-radius: 5px;\n"
+"border-width: 1px;\n"
+"background-color: rgb(250,250,250);\n"
+"")
+        self.incomeOccurencesSpinBox.setProperty("value", 50)
+        self.incomeOccurencesSpinBox.setObjectName("incomeOccurencesSpinBox")
+        self.incomeOccurencesLbl = QtWidgets.QLabel(self.incomeSourceParentWidget)
+        self.incomeOccurencesLbl.setGeometry(QtCore.QRect(470, 10, 231, 20))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(8)
+        self.incomeOccurencesLbl.setFont(font)
+        self.incomeOccurencesLbl.setObjectName("incomeOccurencesLbl")
+        self.pushButton = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.pushButton.setGeometry(QtCore.QRect(740, 10, 80, 80))
+        self.pushButton.setStyleSheet("QPushButton {\n"
+"    background-color: red;\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(30,30,30);\n"
+"    border-radius:20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(210,0,0);\n"
+"    border-color: rgb(15,15,15);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(170,0,0);\n"
+"    border-color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"")
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout_3.addWidget(self.incomeSourceParentWidget)
         self.incomeSourcesScrollArea.setWidget(self.incomeScrollAreaContents)
         self.incomeBackButton = QtWidgets.QPushButton(self.incomeInputPage)
         self.incomeBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
@@ -131,6 +283,53 @@ class Ui_BGBudgeter(object):
 "}\n"
 "")
         self.incomeBackButton.setObjectName("incomeBackButton")
+        self.addIncomeButton = QtWidgets.QPushButton(self.incomeInputPage)
+        self.addIncomeButton.setGeometry(QtCore.QRect(750, 460, 140, 47))
+        self.addIncomeButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(0,220,100);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(30,30,30);\n"
+"    border-radius:20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(0,200,80);\n"
+"    border-color: rgb(15,15,15);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(0,180,60);\n"
+"    border-color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"")
+        self.addIncomeButton.setObjectName("addIncomeButton")
+        self.updateIncomeButton = QtWidgets.QPushButton(self.incomeInputPage)
+        self.updateIncomeButton.setGeometry(QtCore.QRect(375, 520, 150, 50))
+        self.updateIncomeButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,180,0);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(30,30,30);\n"
+"    border-radius:20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(230,160,0);\n"
+"    border-color: rgb(15,15,15);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(210,140,0);\n"
+"    border-color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"")
+        self.updateIncomeButton.setObjectName("updateIncomeButton")
+        self.incomeTipsLbl = QtWidgets.QLabel(self.incomeInputPage)
+        self.incomeTipsLbl.setGeometry(QtCore.QRect(20, 460, 281, 111))
+        self.incomeTipsLbl.setObjectName("incomeTipsLbl")
         self.stackedWidget.addWidget(self.incomeInputPage)
         self.categoryPage = QtWidgets.QWidget()
         self.categoryPage.setObjectName("categoryPage")
@@ -200,15 +399,15 @@ class Ui_BGBudgeter(object):
         self.categoryAmountSpinBox.setMaximum(1000000000.0)
         self.categoryAmountSpinBox.setProperty("value", 50.0)
         self.categoryAmountSpinBox.setObjectName("categoryAmountSpinBox")
-        self.label = QtWidgets.QLabel(self.categoryPage)
-        self.label.setGeometry(QtCore.QRect(295, 70, 120, 40))
+        self.expenseAmountLbl = QtWidgets.QLabel(self.categoryPage)
+        self.expenseAmountLbl.setGeometry(QtCore.QRect(295, 70, 120, 40))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(9)
         font.setBold(False)
         font.setWeight(50)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
+        self.expenseAmountLbl.setFont(font)
+        self.expenseAmountLbl.setObjectName("expenseAmountLbl")
         self.plus10Button = QtWidgets.QPushButton(self.categoryPage)
         self.plus10Button.setGeometry(QtCore.QRect(530, 70, 50, 20))
         self.plus10Button.setObjectName("plus10Button")
@@ -327,6 +526,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -338,12 +538,34 @@ class Ui_BGBudgeter(object):
         self.optionsPageButton.setText(_translate("BGBudgeter", "Extra Options"))
         self.viewBudgetPageButton.setText(_translate("BGBudgeter", "View Budget"))
         self.incomePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Income Sources"))
+        self.incomeAmountLbl.setText(_translate("BGBudgeter", "Income Amount:"))
+        self.incomePeriodComboBox.setItemText(0, _translate("BGBudgeter", "Weekly"))
+        self.incomePeriodComboBox.setItemText(1, _translate("BGBudgeter", "Fortnightly"))
+        self.incomePeriodComboBox.setItemText(2, _translate("BGBudgeter", "Monthly"))
+        self.incomePeriodComboBox.setItemText(3, _translate("BGBudgeter", "Annually"))
+        self.incomePeriodComboBox.setItemText(4, _translate("BGBudgeter", "Student Maintenance Loan (UK)"))
+        self.incomeAdd100Button.setText(_translate("BGBudgeter", "+100"))
+        self.incomeMinus100Button.setText(_translate("BGBudgeter", "-100"))
+        self.incomeAdd1000Button.setText(_translate("BGBudgeter", "+1000"))
+        self.incomeMinus1000Button.setText(_translate("BGBudgeter", "-1000"))
+        self.incomePeriodLbl.setText(_translate("BGBudgeter", "Pay Period/Cycle Length:"))
+        self.incomeOccurencesLbl.setText(_translate("BGBudgeter", "How Many Times Per Year Are You Paid?"))
+        self.pushButton.setText(_translate("BGBudgeter", "REMOVE"))
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.addIncomeButton.setText(_translate("BGBudgeter", "Add Income Source"))
+        self.updateIncomeButton.setText(_translate("BGBudgeter", "UPDATE"))
+        self.incomeTipsLbl.setText(_translate("BGBudgeter", "Tips:\n"
+"- You can manually enter an amount into the\n"
+"  income amount option box\n"
+"- The occurences option details how many\n"
+"  times per year you are paid. For example,\n"
+"  200 a week 50 times a year is a yearly\n"
+"  income total of 10000"))
         self.categoryPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
         self.categoryBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.categoryNameInputLE.setPlaceholderText(_translate("BGBudgeter", "Expense Name"))
         self.addCategoryButton.setText(_translate("BGBudgeter", "ADD"))
-        self.label.setText(_translate("BGBudgeter", "Expense Amount:"))
+        self.expenseAmountLbl.setText(_translate("BGBudgeter", "Expense Amount:"))
         self.plus10Button.setText(_translate("BGBudgeter", "+10"))
         self.minus10Button.setText(_translate("BGBudgeter", "-10"))
         self.plus100Button.setText(_translate("BGBudgeter", "+100"))
