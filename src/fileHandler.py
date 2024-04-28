@@ -91,11 +91,17 @@ class FileHandler:
 
     def saveCategoriesData(self, dictionary):
         '''Completely overwrites categories file with the new data in the dictionary'''
+        #clear file first
+        self.overwrite(True, "")
+        print("Cleared expense category save file")
         i = 0
+        print("Saving new expense category data")
         for key in dictionary:
             # the last element in the dictionary that is being saved should not have a | after it
             if (i+1) >= len(dictionary):
-                self.overwrite(True,str(key) + "," + str(dictionary[key]))
+                self.appendData(True, str(key) + "," + str(dictionary[key]))
             else:
-                self.overwrite(True,str(key) + "," + str(dictionary[key]) + "|")
+                self.appendData(True, str(key) + "," + str(dictionary[key]) + "|")
             i+=1
+
+        print("Expense category data saved")

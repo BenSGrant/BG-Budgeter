@@ -57,9 +57,11 @@ class CategoryManager:
         name = self.ui.categoryNameInputLE.text()
         amount = self.ui.categoryAmountSpinBox.value()
         self.categoryDict[name] = amount
+        print(self.categoryDict)
         self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
         self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
         self.currentRowCount += 1
+        self.fileHand.saveCategoriesData(self.categoryDict)
 
 
 
