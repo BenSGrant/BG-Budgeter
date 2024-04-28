@@ -90,7 +90,12 @@ class FileHandler:
             return None
 
     def saveCategoriesData(self, dictionary):
-        # retrieve or overwrite data first before doing this depending on how this is handled in the CategoryManager class
-        
+        '''Completely overwrites categories file with the new data in the dictionary'''
+        i = 0
         for key in dictionary:
-            self.appendData(str(key) + "," + str(dictionary[key]) + "|")
+            # the last element in the dictionary that is being saved should not have a | after it
+            if (i+1) >= len(dictionary):
+                self.overwrite(True,str(key) + "," + str(dictionary[key]))
+            else:
+                self.overwrite(True,str(key) + "," + str(dictionary[key]) + "|")
+            i+=1

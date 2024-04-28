@@ -40,10 +40,16 @@ class CategoryManager:
                 self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.categoryDict[key])))
                 self.currentRowCount += 1
 
+        self.ui.categoryTable.itemClicked.connect(self.onItemClicked)
+
 
     # functions tied to an event
-    def onCellClicked(self):
+    def onItemClicked(self, cell):
         '''On a cell being clicked, the category is removed from the list'''
+        row = cell.row()
+        categoryName = self.ui.categoryTable.item(row, 0).text() # retrieve text from left column
+        del self.categoryDict[categoryName] # delete from the dictionary
+        self.fileHand.saveCategoriesData(self.categoryDict)
 
     def onAddCategory(self):
         '''When the add button is clicked, a category is added to the table'''
