@@ -17,10 +17,5 @@ class IncomeManager:
 
 
     def onAddIncomeSource(self):
-        amount = self.ui.incomeAmountSpinBox.value()
-        period = self.ui.incomePeriodComboBox.currentText()
-        occurences = self.ui.incomeOccurencesSpinBox.value()
+        '''Adds an income tile to the scroll area'''
         
-        newSource = (amount, period, occurences)
-        self.incomeSources.append(newSource)
-
