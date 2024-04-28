@@ -5,6 +5,10 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class IncomeSourceTile:
     def __init__(self, parent : QtWidgets.QWidget, verticalLayout : QtWidgets.QVBoxLayout):
         ''' parent is incomeScrollAreaContents, vertical layout is verticalLayout_3'''
+        self.parent = parent
+
+
+
         self.incomeSourceParentWidget = QtWidgets.QWidget(parent)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -180,10 +184,3 @@ class IncomeSourceTile:
 
         self.removeIncomeButton.setObjectName("removeIncomeButton")
         verticalLayout.addWidget(self.incomeSourceParentWidget)
-
-
-
-
-    def onAddHundred(self):
-        if self.incomeAmountSpinBox + 100 <= self.incomeAmountSpinBox.maximum():
-            self.incomeAmountSpinBox.setValue(self.incomeAmountSpinBox.value() + 100)
