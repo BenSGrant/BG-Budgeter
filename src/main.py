@@ -4,6 +4,7 @@ from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
 from categories import CategoryManager
+from income import IncomeManager
 from ui import *
 
 class BGBudgeter(QDialog):
@@ -15,10 +16,12 @@ class BGBudgeter(QDialog):
         ######################################################################### USER DEFINED METHODS/VARIABLES
         self.catMan = CategoryManager(self.ui)
         self.fileHand = FileHandler()
+        self.incMan = IncomeManager(self.ui)
 
 
         self.setupPageButtons()
         self.setupCategoryPageButtons()
+        self.setupIncomePageButtons()
         ######################################################################### 
         # show ui
         self.show()
@@ -46,6 +49,11 @@ class BGBudgeter(QDialog):
         self.ui.minus10Button.clicked.connect(self.catMan.subTen)
         self.ui.plus100Button.clicked.connect(self.catMan.addHundred)
         self.ui.minus100Button.clicked.connect(self.catMan.subHundred)
+
+
+    def setupIncomePageButtons(self):
+        '''Connects income page buttons to their actions'''
+        self.ui.addIncomeButton.clicked.connect(self.incMan.onAddIncomeSource)
 
 
     ################## LOAD PAGES ##################

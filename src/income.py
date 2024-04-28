@@ -1,5 +1,6 @@
 from fileHandler import FileHandler
 from ui import Ui_BGBudgeter
+from incomeSourceTile import IncomeSourceTile
 
 class IncomeManager:
     def __init__(self, dialog : Ui_BGBudgeter):
@@ -18,4 +19,7 @@ class IncomeManager:
 
     def onAddIncomeSource(self):
         '''Adds an income tile to the scroll area'''
-        
+        print("adding new tile")
+        newTile = IncomeSourceTile(self.ui.incomeScrollAreaContents, self.ui.verticalLayout_3)
+        print("added new tile")
+

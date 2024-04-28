@@ -1,4 +1,4 @@
-QtCore### CODE IN THIS DOCUMENT IS MOSTLY COPY-PASTED FROM ui.py
+### CODE IN THIS DOCUMENT IS MOSTLY COPY-PASTED FROM ui.py
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
@@ -155,5 +155,28 @@ class IncomeSourceTile:
 "}\n"
 "\n"
 "")
+        
+
+
+        ### initialise values and text
+        _translate = QtCore.QCoreApplication.translate
+        self.incomeAmountLbl.setText(_translate("BGBudgeter", "Income Amount:"))
+        self.incomePeriodComboBox.setItemText(0, _translate("BGBudgeter", "Weekly"))
+        self.incomePeriodComboBox.setItemText(1, _translate("BGBudgeter", "Fortnightly"))
+        self.incomePeriodComboBox.setItemText(2, _translate("BGBudgeter", "Monthly"))
+        self.incomePeriodComboBox.setItemText(3, _translate("BGBudgeter", "Annually"))
+        self.incomePeriodComboBox.setItemText(4, _translate("BGBudgeter", "Student Maintenance Loan (UK)"))
+        self.incomeAdd100Button.setText(_translate("BGBudgeter", "+100"))
+        self.incomeMinus100Button.setText(_translate("BGBudgeter", "-100"))
+        self.incomeAdd1000Button.setText(_translate("BGBudgeter", "+1000"))
+        self.incomeMinus1000Button.setText(_translate("BGBudgeter", "-1000"))
+        self.incomePeriodLbl.setText(_translate("BGBudgeter", "Pay Period/Cycle Length:"))
+        self.incomeOccurencesLbl.setText(_translate("BGBudgeter", "How Many Times Per Year Are You Paid?"))
+        self.removeIncomeButton.setText(_translate("BGBudgeter", "REMOVE"))
+
+
+
+
+
         self.removeIncomeButton.setObjectName("removeIncomeButton")
         verticalLayout.addWidget(self.incomeSourceParentWidget)
