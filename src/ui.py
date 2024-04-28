@@ -238,9 +238,9 @@ class Ui_BGBudgeter(object):
         font.setPointSize(8)
         self.incomeOccurencesLbl.setFont(font)
         self.incomeOccurencesLbl.setObjectName("incomeOccurencesLbl")
-        self.pushButton = QtWidgets.QPushButton(self.incomeSourceParentWidget)
-        self.pushButton.setGeometry(QtCore.QRect(740, 10, 80, 80))
-        self.pushButton.setStyleSheet("QPushButton {\n"
+        self.removeIncomeButton = QtWidgets.QPushButton(self.incomeSourceParentWidget)
+        self.removeIncomeButton.setGeometry(QtCore.QRect(740, 10, 80, 80))
+        self.removeIncomeButton.setStyleSheet("QPushButton {\n"
 "    background-color: red;\n"
 "    border-style: solid;\n"
 "    border-width: 1px;\n"
@@ -259,7 +259,7 @@ class Ui_BGBudgeter(object):
 "}\n"
 "\n"
 "")
-        self.pushButton.setObjectName("pushButton")
+        self.removeIncomeButton.setObjectName("removeIncomeButton")
         self.verticalLayout_3.addWidget(self.incomeSourceParentWidget)
         self.incomeSourcesScrollArea.setWidget(self.incomeScrollAreaContents)
         self.incomeBackButton = QtWidgets.QPushButton(self.incomeInputPage)
@@ -526,7 +526,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -550,7 +550,7 @@ class Ui_BGBudgeter(object):
         self.incomeMinus1000Button.setText(_translate("BGBudgeter", "-1000"))
         self.incomePeriodLbl.setText(_translate("BGBudgeter", "Pay Period/Cycle Length:"))
         self.incomeOccurencesLbl.setText(_translate("BGBudgeter", "How Many Times Per Year Are You Paid?"))
-        self.pushButton.setText(_translate("BGBudgeter", "REMOVE"))
+        self.removeIncomeButton.setText(_translate("BGBudgeter", "REMOVE"))
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.addIncomeButton.setText(_translate("BGBudgeter", "Add Income Source"))
         self.updateIncomeButton.setText(_translate("BGBudgeter", "UPDATE"))
