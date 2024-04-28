@@ -1,10 +1,11 @@
 
-from PyQt5.QtGui import QDoubleValidator
 from PyQt5.QtWidgets import QTableWidgetItem, QHeaderView
 from fileHandler import FileHandler
 
+from ui import Ui_BGBudgeter
+
 class CategoryManager:
-    def __init__(self, dialog):
+    def __init__(self, dialog : Ui_BGBudgeter):
         self.ui = dialog
 
         ## objects
