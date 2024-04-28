@@ -11,11 +11,16 @@ class IncomeManager:
         ## variables
         self.incomeSources = [] # stored list of tuples which have 3 elements
 
+    ## setup
+    def loadIncomeSources(self):
+        self.incomeSources = self.fileHand.retrieveIncomeData()
+
 
     def onAddIncomeSource(self):
-        # dummy code until actual functionality worked out
         amount = self.ui.incomeAmountSpinBox.value()
-        period = "Annually"
-        occurences = 1
+        period = self.ui.incomePeriodComboBox.currentText()
+        occurences = self.ui.incomeOccurencesSpinBox.value()
+        
         newSource = (amount, period, occurences)
         self.incomeSources.append(newSource)
+
