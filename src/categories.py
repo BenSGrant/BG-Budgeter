@@ -28,8 +28,10 @@ class CategoryManager:
 
     # setup functions
     def retrieveStoredCategories(self):
-        '''Retrieves the save data and stores it in a dictionary'''
+        '''Retrieves the save data and stores it in a dictionary. If the FileHandler function returns None, it is checked here and the dictionary is not set to None but rather to an empty dictionary'''
         self.categoryDict = self.fileHand.retrieveCategoriesData()
+        if self.categoryDict is None: # if there is no data in the file then set to empty dictionary
+            self.categoryDict = {}
 
 
     def setupTable(self):
@@ -65,7 +67,6 @@ class CategoryManager:
         if (not name in self.categoryDict) and (not name in self.reservedCategories):
             amount = self.ui.categoryAmountSpinBox.value()
             self.categoryDict[name] = amount
-            print(self.categoryDict)
             self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
             self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
             self.currentRowCount += 1
