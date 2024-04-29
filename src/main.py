@@ -25,6 +25,7 @@ class BGBudgeter(QDialog):
         ######################################################################### 
         # show ui
         self.show()
+        self.ui.stackedWidget.setCurrentIndex(0)
 
     def setupPageButtons(self):
         '''Connects page switchings buttons to their actions'''
