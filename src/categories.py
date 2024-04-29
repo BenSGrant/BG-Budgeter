@@ -13,6 +13,7 @@ class CategoryManager:
 
         ## variables
         self.categoryDict = {}
+        self.reservedCategories = ["Savings"]
 
         # initialise data
         self.retrieveStoredCategories()
@@ -59,13 +60,23 @@ class CategoryManager:
         '''When the add button is clicked, a category is added to the table'''
         #retrieve inputs
         name = self.ui.categoryNameInputLE.text()
-        amount = self.ui.categoryAmountSpinBox.value()
-        self.categoryDict[name] = amount
-        print(self.categoryDict)
-        self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
-        self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
-        self.currentRowCount += 1
-        self.fileHand.saveCategoriesData(self.categoryDict)
+
+        ## check if valid
+        if (not name in self.categoryDict) and (not name in self.reservedCategories):
+            amount = self.ui.categoryAmountSpinBox.value()
+            self.categoryDict[name] = amount
+            print(self.categoryDict)
+            self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
+            self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
+            self.currentRowCount += 1
+            self.fileHand.saveCategoriesData(self.categoryDict)
+
+        elif name in self.categoryDict:
+            self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: You have already used this category name")
+        elif name in self.reservedCategories:
+            self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: This category name is reserved by the app")
+        else:
+            self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: Not sure why, please report the bug on github\nalong with a screenshot of the app")
 
 
 
