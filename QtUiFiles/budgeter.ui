@@ -412,7 +412,7 @@ QPushButton:pressed {
        <x>10</x>
        <y>120</y>
        <width>880</width>
-       <height>470</height>
+       <height>400</height>
       </rect>
      </property>
     </widget>
@@ -549,6 +549,33 @@ QPushButton:pressed {
      </property>
      <property name="text">
       <string>-100</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="categoryErrLbl">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>530</y>
+       <width>881</width>
+       <height>61</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>12</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: red;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
