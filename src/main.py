@@ -52,9 +52,11 @@ class BGBudgeter(QDialog):
         self.ui.minus100Button.clicked.connect(self.catMan.subHundred)
 
 
+
     def setupIncomePageButtons(self):
         '''Connects income page buttons to their actions'''
-        self.ui.addIncomeButton.clicked.connect(self.incMan.onAddIncomeSource)
+        self.ui.addIncomeButton.clicked.connect(self.incMan.loadSourceTile)
+        self.ui.updateIncomeButton.clicked.connect(self.incMan.onUpdate)
 
 
     ################## LOAD PAGES ##################

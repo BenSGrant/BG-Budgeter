@@ -45,17 +45,6 @@ class FileHandler:
         '''Completely replace all text in the document.
 
             option should be one of 3 values: F_INCOME, F_CATEGORIES or F_OPTIONS
-
-            File saving convention:
-            
-            categories:
-            name,amount|name,amount
-
-            income:
-            amount,period,occurences|amount,period,occurences
-
-            options:
-            budgetPeriod,opt2 etc
         '''
         if option == self.F_CATEGORIES:
             print("saving to " + self.categoriesPath)
@@ -110,6 +99,23 @@ class FileHandler:
             print("ERROR: NOT A SUITABLE FILE OPTION IN getData() CALL")
     
 
+
+    ############################### DATA SAVING/RETREIVING ###############################
+    '''     File saving convention:
+            
+            categories:
+            name,amount|name,amount
+
+            income:
+            amount,period,occurences|amount,period,occurences
+
+            options:
+            budgetPeriod,opt2 etc
+    '''
+
+
+
+
     ## CATEGORY FILE SPECIFICS
 
     def retrieveCategoriesData(self):
@@ -161,7 +167,7 @@ class FileHandler:
             pairs = dataStr.split('|') # separated into amount,period,occcurences pairs
             for pair in pairs:
                 splitPair = pair.split(",") # separated into amount, period and occurences elements
-                amount = int(splitPair[0])
+                amount = int(float(splitPair[0])) # needs to be converted to float first to avoid ValueError
                 period = str(splitPair[1])
                 occurences = int(splitPair[2])
                 listToReturn.append((amount, period, occurences))
@@ -169,16 +175,16 @@ class FileHandler:
         else:
             return None
 
-    def saveIncomeData(self, list):
+    def saveIncomeData(self, incomeList):
         '''Completely overwrites income file with the new data in the list'''
         #clear file first
         self.overwrite(self.F_INCOME, "")
         print("Cleared income save file")
         i = 0
         print("Saving new income data")
-        for item in list:
+        for item in incomeList:
             # the last element in the list that is being saved should not have a | after it
-            if (i+1) >= len(list):
+            if (i+1) >= len(incomeList):
                 self.appendData(self.F_INCOME, str(item[0]) + "," + str(item[1]) + "," + str(item[2]))
             else:
                 self.appendData(self.F_INCOME, str(item[0]) + "," + str(item[1]) + "," + str(item[2]) + "|")
