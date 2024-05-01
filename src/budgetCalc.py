@@ -16,8 +16,6 @@ class BudgetCalculator:
         self.incMan = incMan
         self.optMan = optMan
 
-        self.categoryDict = self.catMan.categoryDict
-        self.incomeList = self.incMan.incomeSrcs
         self.perCategoryBudget = {}
 
 
@@ -44,7 +42,7 @@ class BudgetCalculator:
         '''Takes all income sources and calculates how much is received per year'''
         totalIncome = 0
 
-        for income in self.incomeList:
+        for income in self.incMan.incomeSrcs:
             amount = income[0]
             period = income[1]
             occurences = income[2]
@@ -62,17 +60,17 @@ class BudgetCalculator:
         incomeForThePeriod = self.calculateTotalYearlyIncome() / self.optMan.budgetPeriodOccurences
         leftovers = incomeForThePeriod # technically savings
 
-        for key in self.categoryDict:
-            leftovers -= self.categoryDict[key]
+        for key in self.catMan.categoryDict:
+            leftovers -= self.catMan.categoryDict[key]
         return round(leftovers,2)
     
     def displayTotalBudget(self):
         self.ui.budgetTable.clearContents()
         self.currentRowCount = 0
-        for key in self.categoryDict:
+        for key in self.catMan.categoryDict:
             if self.currentRowCount < self.maxRowCount: # < not <= to account for the savings row
                 self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
-                self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.categoryDict[key])))
+                self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.catMan.categoryDict[key])))
                 self.currentRowCount += 1
 
         # add savings
