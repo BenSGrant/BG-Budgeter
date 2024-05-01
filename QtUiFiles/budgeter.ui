@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>3</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="mainPage">
     <property name="styleSheet">
@@ -344,7 +344,7 @@ QPushButton:pressed {
   income total of 10000</string>
      </property>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="incomeHintLbl">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -359,6 +359,26 @@ occurences you put does not matter, you can ignore it.</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QLabel" name="studentMaintenanceDetected">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>460</y>
+       <width>391</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </widget>
@@ -795,7 +815,7 @@ QPushButton:pressed {
       <number>52</number>
      </property>
     </widget>
-    <widget class="QLabel" name="timePeriodOptionLbl_2">
+    <widget class="QLabel" name="budgetOccurencesLbl">
      <property name="geometry">
       <rect>
        <x>500</x>

@@ -178,10 +178,19 @@ class Ui_BGBudgeter(object):
         self.incomeTipsLbl = QtWidgets.QLabel(self.incomeInputPage)
         self.incomeTipsLbl.setGeometry(QtCore.QRect(20, 460, 281, 111))
         self.incomeTipsLbl.setObjectName("incomeTipsLbl")
-        self.label = QtWidgets.QLabel(self.incomeInputPage)
-        self.label.setGeometry(QtCore.QRect(10, 60, 880, 35))
-        self.label.setAlignment(QtCore.Qt.AlignCenter)
-        self.label.setObjectName("label")
+        self.incomeHintLbl = QtWidgets.QLabel(self.incomeInputPage)
+        self.incomeHintLbl.setGeometry(QtCore.QRect(10, 60, 880, 35))
+        self.incomeHintLbl.setAlignment(QtCore.Qt.AlignCenter)
+        self.incomeHintLbl.setObjectName("incomeHintLbl")
+        self.studentMaintenanceDetected = QtWidgets.QLabel(self.incomeInputPage)
+        self.studentMaintenanceDetected.setGeometry(QtCore.QRect(330, 460, 391, 51))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setBold(True)
+        font.setWeight(75)
+        self.studentMaintenanceDetected.setFont(font)
+        self.studentMaintenanceDetected.setText("")
+        self.studentMaintenanceDetected.setObjectName("studentMaintenanceDetected")
         self.stackedWidget.addWidget(self.incomeInputPage)
         self.categoryPage = QtWidgets.QWidget()
         self.categoryPage.setObjectName("categoryPage")
@@ -376,16 +385,16 @@ class Ui_BGBudgeter(object):
         self.budgetPeriodOccurencesSpinBox.setGeometry(QtCore.QRect(515, 250, 150, 41))
         self.budgetPeriodOccurencesSpinBox.setMaximum(52)
         self.budgetPeriodOccurencesSpinBox.setObjectName("budgetPeriodOccurencesSpinBox")
-        self.timePeriodOptionLbl_2 = QtWidgets.QLabel(self.optionsPage)
-        self.timePeriodOptionLbl_2.setGeometry(QtCore.QRect(500, 190, 191, 41))
+        self.budgetOccurencesLbl = QtWidgets.QLabel(self.optionsPage)
+        self.budgetOccurencesLbl.setGeometry(QtCore.QRect(500, 190, 191, 41))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
-        self.timePeriodOptionLbl_2.setFont(font)
-        self.timePeriodOptionLbl_2.setAlignment(QtCore.Qt.AlignCenter)
-        self.timePeriodOptionLbl_2.setObjectName("timePeriodOptionLbl_2")
+        self.budgetOccurencesLbl.setFont(font)
+        self.budgetOccurencesLbl.setAlignment(QtCore.Qt.AlignCenter)
+        self.budgetOccurencesLbl.setObjectName("budgetOccurencesLbl")
         self.stackedWidget.addWidget(self.optionsPage)
         self.viewBudgetPage = QtWidgets.QWidget()
         self.viewBudgetPage.setObjectName("viewBudgetPage")
@@ -429,7 +438,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -451,7 +460,7 @@ class Ui_BGBudgeter(object):
 "  times per year you are paid. For example,\n"
 "  200 a week 50 times a year is a yearly\n"
 "  income total of 10000"))
-        self.label.setText(_translate("BGBudgeter", "Hint: If you choose the student maintenance option in the income period drop down box, the number of\n"
+        self.incomeHintLbl.setText(_translate("BGBudgeter", "Hint: If you choose the student maintenance option in the income period drop down box, the number of\n"
 "occurences you put does not matter, you can ignore it."))
         self.categoryPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
         self.categoryBackButton.setText(_translate("BGBudgeter", "BACK"))
@@ -470,7 +479,7 @@ class Ui_BGBudgeter(object):
         self.timePeriodOptionLbl.setText(_translate("BGBudgeter", "Budget Time Period"))
         self.monthlyBudgetRadioButton.setText(_translate("BGBudgeter", "Monthly"))
         self.updateOptionsButton.setText(_translate("BGBudgeter", "UPDATE"))
-        self.timePeriodOptionLbl_2.setText(_translate("BGBudgeter", "How many weeks\n"
+        self.budgetOccurencesLbl.setText(_translate("BGBudgeter", "How many weeks\n"
 "the budget will cover"))
         self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  View Your Budget"))
         self.viewBudgetBackButton.setText(_translate("BGBudgeter", "BACK"))
