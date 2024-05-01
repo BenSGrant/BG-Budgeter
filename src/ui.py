@@ -293,9 +293,9 @@ class Ui_BGBudgeter(object):
         self.categoryErrLbl.setText("")
         self.categoryErrLbl.setAlignment(QtCore.Qt.AlignCenter)
         self.categoryErrLbl.setObjectName("categoryErrLbl")
-        self.label_2 = QtWidgets.QLabel(self.categoryPage)
-        self.label_2.setGeometry(QtCore.QRect(20, 530, 861, 61))
-        self.label_2.setObjectName("label_2")
+        self.expenseInfoLbl = QtWidgets.QLabel(self.categoryPage)
+        self.expenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 861, 61))
+        self.expenseInfoLbl.setObjectName("expenseInfoLbl")
         self.stackedWidget.addWidget(self.categoryPage)
         self.optionsPage = QtWidgets.QWidget()
         self.optionsPage.setObjectName("optionsPage")
@@ -438,7 +438,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -471,7 +471,7 @@ class Ui_BGBudgeter(object):
         self.minus10Button.setText(_translate("BGBudgeter", "-10"))
         self.plus100Button.setText(_translate("BGBudgeter", "+100"))
         self.minus100Button.setText(_translate("BGBudgeter", "-100"))
-        self.label_2.setText(_translate("BGBudgeter", "The expense amount is how much you expect to pay during each budget period"))
+        self.expenseInfoLbl.setText(_translate("BGBudgeter", "The expense amount is how much you expect to pay during each budget period"))
         self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Extra Options"))
         self.optionsBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.weeklyBudgetRadioButton.setText(_translate("BGBudgeter", "Weekly"))
