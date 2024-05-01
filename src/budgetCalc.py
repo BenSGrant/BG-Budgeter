@@ -3,7 +3,7 @@ from options import OptionManager
 from ui import Ui_BGBudgeter
 from income import IncomeManager
 
-from PyQt5.QtWidgets import QHeaderView
+from PyQt5.QtWidgets import QHeaderView, QTableWidgetItem
 
 class BudgetCalculator:
     def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : CategoryManager, optMan : OptionManager):
@@ -22,7 +22,7 @@ class BudgetCalculator:
 
         
         # budget table class variables
-        self.maxRowCount=30
+        self.maxRowCount=31 # has to be one more thanthe categories.py version of the file
         self.currentRowCount = 0
 
     ####### UI STUFF
@@ -33,14 +33,6 @@ class BudgetCalculator:
         self.ui.budgetTable.setRowCount(self.maxRowCount)
         self.ui.budgetTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) # resize to fit widget
         self.ui.budgetTable.setHorizontalHeaderLabels(["Expense Category", "Allowance"])
-
-
-
-
-
-
-
-
 
 
 
@@ -65,10 +57,25 @@ class BudgetCalculator:
         return totalIncome
     
     def calculateSavings(self):
+        '''Calculates leftovers from income'''
         incomeForThePeriod = self.calculateTotalYearlyIncome() / self.optMan.budgetPeriodOccurences
         leftovers = incomeForThePeriod # technically savings
 
         for key in self.categoryDict:
             leftovers -= self.categoryDict[key]
-        print(leftovers)
-        return leftovers
+        return round(leftovers,2)
+    
+    def displayTotalBudget(self):
+        self.ui.budgetTable.clearContents()
+        for key in self.categoryDict:
+            if self.currentRowCount < self.maxRowCount: # < not <= to account for the savings row
+                self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
+                self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.categoryDict[key])))
+                self.currentRowCount += 1
+
+        # add savings
+        savings = self.calculateSavings()
+        self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(self.catMan.reservedCategories[0]))
+        self.ui.budgetTable.setItem(self.currentRowCount,1, QTableWidgetItem(str(savings)))
+        self.currentRowCount += 1
+
