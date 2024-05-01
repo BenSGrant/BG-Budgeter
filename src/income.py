@@ -89,6 +89,27 @@ class IncomeManager:
         tile.incomeSourceParentWidget.deleteLater()
         del self
 
+
+    def onIncomePeriodChange(self, tile : IncomeSourceTile):
+        '''When the income period selected changes, the occurences spin box changes it's maximum value.'''
+        if tile.incomePeriodComboBox.currentText() == self.incomePeriodOptions[0]:
+            tile.incomeOccurencesSpinBox.setMaximum(52)
+            self.ui.studentMaintenanceDetected.setText("")
+        elif tile.incomePeriodComboBox.currentText() == self.incomePeriodOptions[1]:
+            tile.incomeOccurencesSpinBox.setMaximum(26)
+            self.ui.studentMaintenanceDetected.setText("")
+        elif tile.incomePeriodComboBox.currentText() == self.incomePeriodOptions[2]:
+            tile.incomeOccurencesSpinBox.setMaximum(12)
+            self.ui.studentMaintenanceDetected.setText("")
+        elif tile.incomePeriodComboBox.currentText() == self.incomePeriodOptions[3]:
+            tile.incomeOccurencesSpinBox.setMaximum(1)
+            self.ui.studentMaintenanceDetected.setText("")
+        elif tile.incomePeriodComboBox.currentText() == self.incomePeriodOptions[4]:
+            tile.incomeOccurencesSpinBox.setMaximum(1)
+            self.ui.studentMaintenanceDetected.setText("You have chosen a student maintenance loan type income.\nThe number of occurences is no longer taken into account.")
+        
+
+
     def onUpdate(self):
         '''Called when the update button is pressed. Saves the income data to file'''
         for src in self.srcTiles:
