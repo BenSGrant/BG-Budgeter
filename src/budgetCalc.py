@@ -51,7 +51,7 @@ class BudgetCalculator:
                 totalIncome += amount * occurences
             else:
                 print("Student maintenance loan detected, (option: " + period + ")")
-                totalIncome = amount
+                totalIncome += amount
         
         return totalIncome
     
