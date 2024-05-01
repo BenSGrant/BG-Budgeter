@@ -64,24 +64,11 @@ class BudgetCalculator:
         
         return totalIncome
     
-    def calculateAverageWeeklyIncome(self):
-        return self.calculateAverageWeeklyIncome() / 52
-    
-    def calculateAverageMonthlyIncome(self):
-        return self.calculateTotalYearlyIncome() / 12
-    
     def calculateSavings(self):
-        incomeForThePeriod = 0
-        if self.optMan.budgetPeriod == "weekly":
-            incomeForThePeriod = self.calculateAverageWeeklyIncome()
-        if self.optMan.budgetPeriod == "fornightly":
-            incomeForThePeriod = self.calculateAverageWeeklyIncome() * 2
-        if self.optMan.budgetPeriod == "monthly":
-            incomeForThePeriod = self.calculateAverageMonthlyIncome()
-        
+        incomeForThePeriod = self.calculateTotalYearlyIncome() / self.optMan.budgetPeriodOccurences
         leftovers = incomeForThePeriod # technically savings
 
         for key in self.categoryDict:
             leftovers -= self.categoryDict[key]
-        
+        print(leftovers)
         return leftovers
