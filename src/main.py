@@ -23,7 +23,7 @@ class BGBudgeter(QDialog):
         self.incMan.loadIncomeSources()
         self.optMan = OptionManager(self.ui)
         self.optMan.loadSaveData()
-        self.budgetCalculator = BudgetCalculator()
+        self.budgetCalculator = BudgetCalculator(self.ui, self.incMan, self.catMan, self.optMan)
 
 
         self.setupPageButtons()
