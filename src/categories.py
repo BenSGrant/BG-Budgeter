@@ -78,6 +78,8 @@ class CategoryManager:
         else:
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: Not sure why, please report the bug on github\nalong with a screenshot of the app")
 
+        self.ui.categoryNameInputLE.clear()
+        self.ui.categoryAmountSpinBox.setValue(50.0)
 
 
 
