@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>3</number>
    </property>
    <widget class="QWidget" name="mainPage">
     <property name="styleSheet">
@@ -673,7 +673,7 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="weeklyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>290</x>
        <y>230</y>
        <width>100</width>
        <height>20</height>
@@ -691,7 +691,7 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="fortnightlyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>290</x>
        <y>255</y>
        <width>100</width>
        <height>20</height>
@@ -709,7 +709,7 @@ QPushButton:pressed {
     <widget class="QLabel" name="timePeriodOptionLbl">
      <property name="geometry">
       <rect>
-       <x>375</x>
+       <x>265</x>
        <y>200</y>
        <width>150</width>
        <height>30</height>
@@ -733,7 +733,7 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="monthlyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>400</x>
+       <x>290</x>
        <y>280</y>
        <width>100</width>
        <height>20</height>
@@ -780,6 +780,44 @@ QPushButton:pressed {
      </property>
      <property name="text">
       <string>UPDATE</string>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="budgetPeriodOccurencesSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>515</x>
+       <y>250</y>
+       <width>150</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="maximum">
+      <number>52</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="timePeriodOptionLbl_2">
+     <property name="geometry">
+      <rect>
+       <x>500</x>
+       <y>190</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Trebuchet MS</family>
+       <pointsize>9</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>How many weeks
+the budget will cover</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>

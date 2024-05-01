@@ -3,6 +3,7 @@ from options import OptionManager
 from ui import Ui_BGBudgeter
 from income import IncomeManager
 
+from PyQt5.QtWidgets import QHeaderView
 
 class BudgetCalculator:
     def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : CategoryManager, optMan : OptionManager):
@@ -17,6 +18,34 @@ class BudgetCalculator:
         self.categoryDict = self.catMan.categoryDict
         self.incomeList = self.incMan.incomeSrcs
         self.perCategoryBudget = {}
+
+
+        
+        # budget table class variables
+        self.maxRowCount=30
+        self.currentRowCount = 0
+
+    ####### UI STUFF
+
+    def setupTable(self):
+        '''Sets up the budget view table'''
+        self.ui.budgetTable.setColumnCount(2)
+        self.ui.budgetTable.setRowCount(self.maxRowCount)
+        self.ui.budgetTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) # resize to fit widget
+        self.ui.budgetTable.setHorizontalHeaderLabels(["Expense Category", "Allowance"])
+
+
+
+
+
+
+
+
+
+
+
+    ###### INCOME CALCULATIONS
+
 
     def calculateTotalYearlyIncome(self):
         '''Takes all income sources and calculates how much is received per year'''
