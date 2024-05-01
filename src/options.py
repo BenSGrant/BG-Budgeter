@@ -11,6 +11,9 @@ class OptionManager:
         self.budgetPeriod = ""
 
         self.ui.updateOptionsButton.clicked.connect(self.onUpdate)
+        self.ui.weeklyBudgetRadioButton.toggled.connect(self.onRadioButtonChange)
+        self.ui.fortnightlyBudgetRadioButton.toggled.connect(self.onRadioButtonChange)
+        self.ui.monthlyBudgetRadioButton.toggled.connect(self.onRadioButtonChange)
 
 
     def onUpdate(self):
@@ -39,3 +42,12 @@ class OptionManager:
         else:
             print("Options save data is invalid, using default settings")
             self.ui.weeklyBudgetRadioButton.setChecked(True)
+
+    def onRadioButtonChange(self):
+        '''Changes the maximum occurences value'''
+        if self.ui.weeklyBudgetRadioButton.isChecked():
+            self.ui.budgetPeriodOccurencesSpinBox.setMaximum(52)
+        if self.ui.fortnightlyBudgetRadioButton.isChecked():
+            self.ui.budgetPeriodOccurencesSpinBox.setMaximum(26)
+        if self.ui.monthlyBudgetRadioButton.isChecked():
+            self.ui.budgetPeriodOccurencesSpinBox.setMaximum(12)
