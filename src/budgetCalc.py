@@ -14,18 +14,45 @@ class BudgetCalculator:
         self.incMan = incMan
         self.optMan = optMan
 
-        self.categoryList = self.catMan.categoryDict
+        self.categoryDict = self.catMan.categoryDict
         self.incomeList = self.incMan.incomeSrcs
+        self.perCategoryBudget = {}
 
     def calculateTotalYearlyIncome(self):
+        '''Takes all income sources and calculates how much is received per year'''
         totalIncome = 0
 
         for income in self.incomeList:
             amount = income[0]
+            period = income[1]
             occurences = income[2]
 
-            totalIncome += amount * occurences
-
-
-
+            if period != self.incMan.incomePeriodOptions[4]:
+                totalIncome += amount * occurences
+            else:
+                print("Student maintenance loan detected, (option: " + period + ")")
+                totalIncome = amount
+        
         return totalIncome
+    
+    def calculateAverageWeeklyIncome(self):
+        return self.calculateAverageWeeklyIncome() / 52
+    
+    def calculateAverageMonthlyIncome(self):
+        return self.calculateTotalYearlyIncome() / 12
+    
+    def calculateSavings(self):
+        incomeForThePeriod = 0
+        if self.optMan.budgetPeriod == "weekly":
+            incomeForThePeriod = self.calculateAverageWeeklyIncome()
+        if self.optMan.budgetPeriod == "fornightly":
+            incomeForThePeriod = self.calculateAverageWeeklyIncome() * 2
+        if self.optMan.budgetPeriod == "monthly":
+            incomeForThePeriod = self.calculateAverageMonthlyIncome()
+        
+        leftovers = incomeForThePeriod # technically savings
+
+        for key in self.categoryDict:
+            leftovers -= self.categoryDict[key]
+        
+        return leftovers
