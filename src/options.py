@@ -26,8 +26,9 @@ class OptionManager:
         elif self.ui.monthlyBudgetRadioButton.isChecked():
             self.budgetPeriod = "monthly"
 
+        self.budgetPeriodOccurences = self.ui.budgetPeriodOccurencesSpinBox.value()
 
-        self.fileHand.saveOptionsData([self.budgetPeriod, self.ui.budgetPeriodOccurencesSpinBox.value()])
+        self.fileHand.saveOptionsData([self.budgetPeriod, self.budgetPeriodOccurences])
     
     def loadSaveData(self):
         '''Loads current options'''
