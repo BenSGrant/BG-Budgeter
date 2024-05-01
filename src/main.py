@@ -5,6 +5,7 @@ from PyQt5.QtWidgets import QDialog
 
 from categories import CategoryManager
 from income import IncomeManager
+from options import OptionManager
 from ui import *
 
 class BGBudgeter(QDialog):
@@ -17,6 +18,7 @@ class BGBudgeter(QDialog):
         self.catMan = CategoryManager(self.ui)
         self.fileHand = FileHandler()
         self.incMan = IncomeManager(self.ui)
+        self.optMan = OptionManager(self.ui)
 
 
         self.setupPageButtons()

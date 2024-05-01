@@ -643,8 +643,8 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="weeklyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>100</y>
+       <x>400</x>
+       <y>230</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -661,8 +661,8 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="fortnightlyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>125</y>
+       <x>400</x>
+       <y>255</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -679,8 +679,8 @@ QPushButton:pressed {
     <widget class="QLabel" name="timePeriodOptionLbl">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>70</y>
+       <x>375</x>
+       <y>200</y>
        <width>150</width>
        <height>30</height>
       </rect>
@@ -703,8 +703,8 @@ QPushButton:pressed {
     <widget class="QRadioButton" name="monthlyBudgetRadioButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>150</y>
+       <x>400</x>
+       <y>280</y>
        <width>100</width>
        <height>20</height>
       </rect>
@@ -716,6 +716,40 @@ QPushButton:pressed {
      </property>
      <property name="text">
       <string>Monthly</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="updateOptionsButton">
+     <property name="geometry">
+      <rect>
+       <x>375</x>
+       <y>450</y>
+       <width>150</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+	background-color: rgb(250,180,0);
+	border-style: solid;
+	border-width: 1px;
+	border-color: rgb(30,30,30);
+	border-radius:20px;
+}
+
+QPushButton:hover {
+	background-color: rgb(230,160,0);
+	border-color: rgb(15,15,15);
+}
+
+QPushButton:pressed {
+	background-color: rgb(210,140,0);
+	border-color: rgb(0,0,0);
+}
+
+</string>
+     </property>
+     <property name="text">
+      <string>UPDATE</string>
      </property>
     </widget>
    </widget>

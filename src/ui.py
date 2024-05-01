@@ -316,19 +316,19 @@ class Ui_BGBudgeter(object):
 "")
         self.optionsBackButton.setObjectName("optionsBackButton")
         self.weeklyBudgetRadioButton = QtWidgets.QRadioButton(self.optionsPage)
-        self.weeklyBudgetRadioButton.setGeometry(QtCore.QRect(20, 100, 100, 20))
+        self.weeklyBudgetRadioButton.setGeometry(QtCore.QRect(400, 230, 100, 20))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         self.weeklyBudgetRadioButton.setFont(font)
         self.weeklyBudgetRadioButton.setObjectName("weeklyBudgetRadioButton")
         self.fortnightlyBudgetRadioButton = QtWidgets.QRadioButton(self.optionsPage)
-        self.fortnightlyBudgetRadioButton.setGeometry(QtCore.QRect(20, 125, 100, 20))
+        self.fortnightlyBudgetRadioButton.setGeometry(QtCore.QRect(400, 255, 100, 20))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         self.fortnightlyBudgetRadioButton.setFont(font)
         self.fortnightlyBudgetRadioButton.setObjectName("fortnightlyBudgetRadioButton")
         self.timePeriodOptionLbl = QtWidgets.QLabel(self.optionsPage)
-        self.timePeriodOptionLbl.setGeometry(QtCore.QRect(10, 70, 150, 30))
+        self.timePeriodOptionLbl.setGeometry(QtCore.QRect(375, 200, 150, 30))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(9)
@@ -338,11 +338,33 @@ class Ui_BGBudgeter(object):
         self.timePeriodOptionLbl.setAlignment(QtCore.Qt.AlignCenter)
         self.timePeriodOptionLbl.setObjectName("timePeriodOptionLbl")
         self.monthlyBudgetRadioButton = QtWidgets.QRadioButton(self.optionsPage)
-        self.monthlyBudgetRadioButton.setGeometry(QtCore.QRect(20, 150, 100, 20))
+        self.monthlyBudgetRadioButton.setGeometry(QtCore.QRect(400, 280, 100, 20))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         self.monthlyBudgetRadioButton.setFont(font)
         self.monthlyBudgetRadioButton.setObjectName("monthlyBudgetRadioButton")
+        self.updateOptionsButton = QtWidgets.QPushButton(self.optionsPage)
+        self.updateOptionsButton.setGeometry(QtCore.QRect(375, 450, 150, 50))
+        self.updateOptionsButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,180,0);\n"
+"    border-style: solid;\n"
+"    border-width: 1px;\n"
+"    border-color: rgb(30,30,30);\n"
+"    border-radius:20px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(230,160,0);\n"
+"    border-color: rgb(15,15,15);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(210,140,0);\n"
+"    border-color: rgb(0,0,0);\n"
+"}\n"
+"\n"
+"")
+        self.updateOptionsButton.setObjectName("updateOptionsButton")
         self.stackedWidget.addWidget(self.optionsPage)
         self.viewBudgetPage = QtWidgets.QWidget()
         self.viewBudgetPage.setObjectName("viewBudgetPage")
@@ -423,6 +445,7 @@ class Ui_BGBudgeter(object):
         self.fortnightlyBudgetRadioButton.setText(_translate("BGBudgeter", "Fortnightly"))
         self.timePeriodOptionLbl.setText(_translate("BGBudgeter", "Budget Time Period"))
         self.monthlyBudgetRadioButton.setText(_translate("BGBudgeter", "Monthly"))
+        self.updateOptionsButton.setText(_translate("BGBudgeter", "UPDATE"))
         self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  View Your Budget"))
         self.viewBudgetBackButton.setText(_translate("BGBudgeter", "BACK"))
 
