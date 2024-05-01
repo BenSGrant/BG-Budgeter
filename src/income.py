@@ -18,7 +18,6 @@ class IncomeManager:
                                      "Monthly", "Annually",
                                      "Student Maintenance Loan (UK)"] # this needs to be updated if the options change
         
-        self.loadIncomeSources()
 
 
     ## setup

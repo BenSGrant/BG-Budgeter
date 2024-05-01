@@ -12,7 +12,6 @@ class OptionManager:
 
         self.ui.updateOptionsButton.clicked.connect(self.onUpdate)
 
-        self.loadSaveData()
 
     def onUpdate(self):
         '''Saves current option data'''

@@ -24,7 +24,6 @@ class CategoryManager:
         self.ui.categoryTable.setRowCount(self.maxRowCount)
         self.ui.categoryTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) # resize to fit widget
         self.currentRowCount = 0
-        self.setupTable()
 
     # setup functions
     def retrieveStoredCategories(self):
