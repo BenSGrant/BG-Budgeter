@@ -193,20 +193,37 @@ class FileHandler:
         print("Income data saved")
 
 
-        ######### OPTIONS FILE SPECIFICS
+    ######### OPTIONS FILE SPECIFICS
     
     def retrieveOptionsData(self):
-        '''Retrieves option save data. THIS NEEDS TO BE UPDATED WHEN MORE OPTIONS ARE ADDED\n
+        '''Retrieves option save data. \n
         OPTIONS DATA SHOULD BE LOWERCASE'''
         data = self.getData(self.F_OPTIONS)
+        listToReturn = []
         if data is not None and len(data) > 0:
-            return data[0]
+            listToReturn.append(str(data[0]).lower())
+            listToReturn.append(int(data[1]))
         else:
-            return "weekly" # default
+            print("No options data saved, using default")
+            return ["weekly", 52]
         
-    def saveOptionsData(self, budgetPeriod : str):
+    def saveOptionsData(self, dataList):
+        '''Saves the options data
+
+            period|occurences
+        '''
         # clear file
         print("saving options data")
         self.overwrite(self.F_OPTIONS, "")
-        self.appendData(self.F_OPTIONS, budgetPeriod)
+        if len(dataList) > 0:
+            i = 0
+            for dataItem in dataList:
+                if i+1 == len(dataList):
+                    self.appendData(self.F_OPTIONS, dataItem)
+                else:
+                    self.appendData(self.F_OPTIONS, dataItem + "|")
+                i+=1
+        else:
+            print("NO OPTIONS DATA TO SAVE")
+        
         print("finished saving options data")
