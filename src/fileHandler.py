@@ -199,10 +199,13 @@ class FileHandler:
         '''Retrieves option save data. \n
         OPTIONS DATA SHOULD BE LOWERCASE'''
         data = self.getData(self.F_OPTIONS)
+        print(len(data))
         listToReturn = []
         if data is not None and len(data) > 0:
-            listToReturn.append(str(data[0]).lower())
-            listToReturn.append(int(data[1]))
+            dataItems = data[0].split("|")
+            listToReturn.append(str(dataItems[0]).lower())
+            listToReturn.append(int(dataItems[1]))
+            return listToReturn
         else:
             print("No options data saved, using default")
             return ["weekly", 52]
@@ -219,9 +222,9 @@ class FileHandler:
             i = 0
             for dataItem in dataList:
                 if i+1 == len(dataList):
-                    self.appendData(self.F_OPTIONS, dataItem)
+                    self.appendData(self.F_OPTIONS, str(dataItem))
                 else:
-                    self.appendData(self.F_OPTIONS, dataItem + "|")
+                    self.appendData(self.F_OPTIONS, str(dataItem) + "|")
                 i+=1
         else:
             print("NO OPTIONS DATA TO SAVE")

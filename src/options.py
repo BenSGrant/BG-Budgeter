@@ -25,13 +25,14 @@ class OptionManager:
         elif self.ui.monthlyBudgetRadioButton.isChecked():
             self.budgetPeriod = "monthly"
 
-        self.fileHand.saveOptionsData(self.budgetPeriod)
+
+        self.fileHand.saveOptionsData([self.budgetPeriod, self.ui.budgetPeriodOccurencesSpinBox.value()])
     
     def loadSaveData(self):
         '''Loads current options'''
         data = self.fileHand.retrieveOptionsData()
 
-        self.budgetPeriod = data
+        self.budgetPeriod = data[0]
 
         if self.budgetPeriod == "weekly":
             self.ui.weeklyBudgetRadioButton.setChecked(True)
@@ -40,8 +41,15 @@ class OptionManager:
         elif self.budgetPeriod == "monthly":
             self.ui.monthlyBudgetRadioButton.setChecked(True)
         else:
-            print("Options save data is invalid, using default settings")
+            print("Options budget period save data is invalid, using default settings")
             self.ui.weeklyBudgetRadioButton.setChecked(True)
+
+        if len(data) >= 2:
+            self.ui.budgetPeriodOccurencesSpinBox.setValue(data[1])
+        else:
+            print("No budget period occurences data saved, using default (maximum value)")
+            self.ui.budgetPeriodOccurencesSpinBox.setValue(self.ui.budgetPeriodOccurencesSpinBox.maximum())
+
 
     def onRadioButtonChange(self):
         '''Changes the maximum occurences value'''
