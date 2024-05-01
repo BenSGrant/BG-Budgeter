@@ -52,6 +52,7 @@ class IncomeManager:
         srcTile.incomeMinus1000Button.clicked.connect(lambda: self.onSubThousand(srcTile))
         srcTile.incomeMinus100Button.clicked.connect(lambda: self.onSubHundred(srcTile))
         srcTile.removeIncomeButton.clicked.connect(lambda: self.onRemoveSource(srcTile))
+        srcTile.incomePeriodComboBox.currentTextChanged.connect(lambda: self.onIncomePeriodChange(srcTile))
 
         self.srcTiles.append(srcTile)
         return srcTile
