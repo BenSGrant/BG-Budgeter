@@ -4,6 +4,7 @@ from ui import Ui_BGBudgeter
 from income import IncomeManager
 
 from PyQt5.QtWidgets import QHeaderView, QTableWidgetItem
+from PyQt5.QtGui import QColor
 
 class BudgetCalculator:
     def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : CategoryManager, optMan : OptionManager):
@@ -67,6 +68,7 @@ class BudgetCalculator:
     
     def displayTotalBudget(self):
         self.ui.budgetTable.clearContents()
+        self.currentRowCount = 0
         for key in self.categoryDict:
             if self.currentRowCount < self.maxRowCount: # < not <= to account for the savings row
                 self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
@@ -76,6 +78,10 @@ class BudgetCalculator:
         # add savings
         savings = self.calculateSavings()
         self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(self.catMan.reservedCategories[0]))
-        self.ui.budgetTable.setItem(self.currentRowCount,1, QTableWidgetItem(str(savings)))
-        self.currentRowCount += 1
+        self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(savings)))
 
+        if savings < 0: # not enough income for the budget
+            self.ui.budgetTable.item(self.currentRowCount, 0).setBackground(QColor(250,50,50))
+            self.ui.budgetTable.item(self.currentRowCount, 1).setBackground(QColor(250,50,50))
+
+        self.currentRowCount += 1
