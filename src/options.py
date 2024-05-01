@@ -9,6 +9,7 @@ class OptionManager:
         #### objects
         self.fileHand = FileHandler()
         self.budgetPeriod = ""
+        self.budgetPeriodOccurences = 0
 
         self.ui.updateOptionsButton.clicked.connect(self.onUpdate)
         self.ui.weeklyBudgetRadioButton.toggled.connect(self.onRadioButtonChange)
@@ -46,16 +47,21 @@ class OptionManager:
 
         if len(data) >= 2:
             self.ui.budgetPeriodOccurencesSpinBox.setValue(data[1])
+            self.budgetPeriodOccurences = data[1]
         else:
             print("No budget period occurences data saved, using default (maximum value)")
             self.ui.budgetPeriodOccurencesSpinBox.setValue(self.ui.budgetPeriodOccurencesSpinBox.maximum())
+            self.budgetPeriodOccurences = self.ui.budgetPeriodOccurencesSpinBox.maximum()
 
 
     def onRadioButtonChange(self):
         '''Changes the maximum occurences value'''
         if self.ui.weeklyBudgetRadioButton.isChecked():
             self.ui.budgetPeriodOccurencesSpinBox.setMaximum(52)
+            self.ui.budgetOccurencesLbl.setText("How many weeks\nthe budget will cover")
         if self.ui.fortnightlyBudgetRadioButton.isChecked():
             self.ui.budgetPeriodOccurencesSpinBox.setMaximum(26)
+            self.ui.budgetOccurencesLbl.setText("How many fortnights\nthe budget will cover")
         if self.ui.monthlyBudgetRadioButton.isChecked():
             self.ui.budgetPeriodOccurencesSpinBox.setMaximum(12)
+            self.ui.budgetOccurencesLbl.setText("How many months\nthe budget will cover")
