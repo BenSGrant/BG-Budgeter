@@ -25,7 +25,6 @@ class BGBudgeter(QDialog):
         self.optMan.loadSaveData()
         self.budgetCalculator = BudgetCalculator(self.ui, self.incMan, self.catMan, self.optMan)
 
-
         self.setupPageButtons()
         self.setupCategoryPageButtons()
         self.setupIncomePageButtons()
@@ -81,6 +80,7 @@ class BGBudgeter(QDialog):
         self.ui.stackedWidget.setCurrentIndex(3)
 
     def loadViewBudgetPage(self):
+        self.budgetCalculator.calculateSavings()
         self.ui.stackedWidget.setCurrentIndex(4)
 
 
