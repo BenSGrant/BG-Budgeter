@@ -82,7 +82,9 @@ class IncomeManager:
         incTuple = (tile.incomeAmountSpinBox.value(),
                     tile.incomePeriodComboBox.currentText(),
                     tile.incomeOccurencesSpinBox.value())
-        self.incomeSrcs.remove(incTuple)
+        # if the income  source data has been stored already then remove it
+        if incTuple in self.incomeSrcs:
+            self.incomeSrcs.remove(incTuple)
         # decouple the object from it's parent
         tile.parent.layout().removeWidget(tile.incomeSourceParentWidget)
         # instruct Qt remove the object
