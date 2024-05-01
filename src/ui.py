@@ -99,13 +99,13 @@ class Ui_BGBudgeter(object):
         self.incomePageTtl.setAlignment(QtCore.Qt.AlignCenter)
         self.incomePageTtl.setObjectName("incomePageTtl")
         self.incomeSourcesScrollArea = QtWidgets.QScrollArea(self.incomeInputPage)
-        self.incomeSourcesScrollArea.setGeometry(QtCore.QRect(10, 70, 880, 380))
+        self.incomeSourcesScrollArea.setGeometry(QtCore.QRect(10, 100, 880, 350))
         self.incomeSourcesScrollArea.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
         self.incomeSourcesScrollArea.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
         self.incomeSourcesScrollArea.setWidgetResizable(True)
         self.incomeSourcesScrollArea.setObjectName("incomeSourcesScrollArea")
         self.incomeScrollAreaContents = QtWidgets.QWidget()
-        self.incomeScrollAreaContents.setGeometry(QtCore.QRect(0, 0, 857, 378))
+        self.incomeScrollAreaContents.setGeometry(QtCore.QRect(0, 0, 857, 348))
         self.incomeScrollAreaContents.setObjectName("incomeScrollAreaContents")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.incomeScrollAreaContents)
         self.verticalLayout_3.setObjectName("verticalLayout_3")
@@ -178,6 +178,10 @@ class Ui_BGBudgeter(object):
         self.incomeTipsLbl = QtWidgets.QLabel(self.incomeInputPage)
         self.incomeTipsLbl.setGeometry(QtCore.QRect(20, 460, 281, 111))
         self.incomeTipsLbl.setObjectName("incomeTipsLbl")
+        self.label = QtWidgets.QLabel(self.incomeInputPage)
+        self.label.setGeometry(QtCore.QRect(10, 60, 880, 35))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
         self.stackedWidget.addWidget(self.incomeInputPage)
         self.categoryPage = QtWidgets.QWidget()
         self.categoryPage.setObjectName("categoryPage")
@@ -408,7 +412,7 @@ class Ui_BGBudgeter(object):
         self.stackedWidget.addWidget(self.viewBudgetPage)
 
         self.retranslateUi(BGBudgeter)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(BGBudgeter)
 
     def retranslateUi(self, BGBudgeter):
@@ -430,6 +434,8 @@ class Ui_BGBudgeter(object):
 "  times per year you are paid. For example,\n"
 "  200 a week 50 times a year is a yearly\n"
 "  income total of 10000"))
+        self.label.setText(_translate("BGBudgeter", "Hint: If you choose the student maintenance option in the income period drop down box, the number of\n"
+"occurences you put does not matter, you can ignore it."))
         self.categoryPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Expense Categories"))
         self.categoryBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.categoryNameInputLE.setPlaceholderText(_translate("BGBudgeter", "Expense Name"))

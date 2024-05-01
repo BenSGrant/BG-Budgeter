@@ -1,5 +1,6 @@
 
 import os
+from budgetCalc import BudgetCalculator
 from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
@@ -22,6 +23,7 @@ class BGBudgeter(QDialog):
         self.incMan.loadIncomeSources()
         self.optMan = OptionManager(self.ui)
         self.optMan.loadSaveData()
+        self.budgetCalculator = BudgetCalculator()
 
 
         self.setupPageButtons()

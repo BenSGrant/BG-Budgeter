@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="mainPage">
     <property name="styleSheet">
@@ -198,9 +198,9 @@ QPushButton:pressed {
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>70</y>
+       <y>100</y>
        <width>880</width>
-       <height>380</height>
+       <height>350</height>
       </rect>
      </property>
      <property name="verticalScrollBarPolicy">
@@ -218,7 +218,7 @@ QPushButton:pressed {
         <x>0</x>
         <y>0</y>
         <width>857</width>
-        <height>378</height>
+        <height>348</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3"/>
@@ -342,6 +342,23 @@ QPushButton:pressed {
   times per year you are paid. For example,
   200 a week 50 times a year is a yearly
   income total of 10000</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>880</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Hint: If you choose the student maintenance option in the income period drop down box, the number of
+occurences you put does not matter, you can ignore it.</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
