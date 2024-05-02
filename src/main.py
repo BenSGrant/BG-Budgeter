@@ -4,7 +4,7 @@ from budgetCalc import BudgetCalculator
 from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
-from expenses import RegularExpenseManager
+from expenses import OneTimeExpenseManager, RegularExpenseManager
 from income import IncomeManager
 from options import OptionManager
 from ui import *
@@ -23,12 +23,15 @@ class BGBudgeter(QDialog):
         self.incMan.loadIncomeSources()
         self.optMan = OptionManager(self.ui)
         self.optMan.loadSaveData()
+        self.OTEMan = OneTimeExpenseManager(self.ui)
+        self.OTEMan.setupTable()
         self.budgetCalculator = BudgetCalculator(self.ui, self.incMan, self.catMan, self.optMan)
         self.budgetCalculator.setupTable()
 
         self.setupPageButtons()
         self.setupCategoryPageButtons()
         self.setupIncomePageButtons()
+        self.setupOTExpensePageButtons()
         ######################################################################### 
         # show ui
         self.show()
@@ -41,12 +44,14 @@ class BGBudgeter(QDialog):
         self.ui.categoryPageButton.clicked.connect(self.loadCategoryPage)
         self.ui.optionsPageButton.clicked.connect(self.loadOptionsPage)
         self.ui.viewBudgetPageButton.clicked.connect(self.loadViewBudgetPage)
+        self.ui.oneTimeExpensesPageButton.clicked.connect(self.loadOTExpensesPage)
 
         # back to home page buttons
         self.ui.incomeBackButton.clicked.connect(self.loadHomePage)
         self.ui.categoryBackButton.clicked.connect(self.loadHomePage)
         self.ui.optionsBackButton.clicked.connect(self.loadHomePage)
         self.ui.viewBudgetBackButton.clicked.connect(self.loadHomePage)
+        self.ui.otExpenseBackButton.clicked.connect(self.loadHomePage)
 
 
     def setupCategoryPageButtons(self):
@@ -57,6 +62,15 @@ class BGBudgeter(QDialog):
         self.ui.minus10Button.clicked.connect(self.catMan.subTen)
         self.ui.plus100Button.clicked.connect(self.catMan.addHundred)
         self.ui.minus100Button.clicked.connect(self.catMan.subHundred)
+
+    def setupOTExpensePageButtons(self):
+        '''Connects one time expense page buttons to their actions'''
+        self.ui.addOTExpenseButton.clicked.connect(self.OTEMan.onAddCategory)
+        
+        self.ui.otPlus10Button.clicked.connect(self.OTEMan.addTen)
+        self.ui.otMinus10Button.clicked.connect(self.OTEMan.subTen)
+        self.ui.otPlus100Button.clicked.connect(self.OTEMan.addHundred)
+        self.ui.otMinus100Button.clicked.connect(self.OTEMan.subHundred)
 
 
 
@@ -83,6 +97,9 @@ class BGBudgeter(QDialog):
     def loadViewBudgetPage(self):
         self.budgetCalculator.displayTotalBudget()
         self.ui.stackedWidget.setCurrentIndex(4)
+
+    def loadOTExpensesPage(self):
+        self.ui.stackedWidget.setCurrentIndex(5)
 
 
 if __name__ == "__main__":

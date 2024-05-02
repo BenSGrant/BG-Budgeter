@@ -4,6 +4,7 @@ class FileHandler:
     F_INCOME = 1
     F_CATEGORIES = 2
     F_OPTIONS = 3
+    F_OTEXPENSES = 4
 
     def __init__(self):
         #this makes the app windows only as %appdata% is only defined in Windows
@@ -13,7 +14,7 @@ class FileHandler:
         self.categoriesPath = self.dirPath + "categories.txt"
         self.incomePath = self.dirPath + "income.txt"
         self.optionsPath = self.dirPath + "options.txt"
-
+        self.otExpensesPath = self.dirPath + "otExpenses.txt"
 
         self.ensureFilesExist()
     
@@ -37,6 +38,11 @@ class FileHandler:
             with open(self.optionsPath, 'w') as f:
                 f.write("")
                 f.close()
+        if not os.path.exists(self.otExpensesPath):
+            os.makedirs(os.path.dirname(self.otExpensesPath), exist_ok=True)
+            with open(self.otExpensesPath, 'w') as f:
+                f.write("")
+                f.close()
 
 
     ### GENERAL
@@ -44,7 +50,7 @@ class FileHandler:
     def overwrite(self, option : int, data):
         '''Completely replace all text in the document.
 
-            option should be one of 3 values: F_INCOME, F_CATEGORIES or F_OPTIONS
+            option should be one of 3 values: F_INCOME, F_CATEGORIES, F_OPTIONS or F_OTEXPENSES
         '''
         if option == self.F_CATEGORIES:
             print("saving to " + self.categoriesPath)
@@ -59,13 +65,17 @@ class FileHandler:
             fileObj = open(self.optionsPath, 'w')
             fileObj.write(data)
             fileObj.close()
+        elif option == self.F_OTEXPENSES:
+            fileObj = open(self.otExpensesPath, 'w')
+            fileObj.write(data)
+            fileObj.close()
         else:
             print("ERROR: NOT A SUITABLE FILE OPTION IN overwrite() CALL")
 
     def appendData(self,option : int,data):
         '''Add text to the document.
         
-            option should be one of 3 values: F_INCOME, F_CATEGORIES or F_OPTIONS'''
+            option should be one of 3 values: F_INCOME, F_CATEGORIES, F_OPTIONS or F_OTEXPENSES'''
         if option == self.F_CATEGORIES:
             fileObj = open(self.categoriesPath, 'a')
             fileObj.write(data)
@@ -78,6 +88,10 @@ class FileHandler:
             fileObj = open(self.optionsPath, 'a')
             fileObj.write(data)
             fileObj.close()
+        elif option == self.F_OTEXPENSES:
+            fileObj = open(self.otExpensesPath, 'a')
+            fileObj.write(data)
+            fileObj.close()
         else:
             print("ERROR: NOT A SUITABLE FILE OPTION IN appendData() CALL")
 
@@ -85,7 +99,7 @@ class FileHandler:
     def getData(self, option : int):
         '''Retrieve data from document, filter through this raw data as you please.
         
-            option should be one of 3 values: F_INCOME, F_CATEGORIES or F_OPTIONS'''
+            option should be one of 3 values: F_INCOME, F_CATEGORIES, F_OPTIONS or F_OTEXPENSES'''
         if option == self.F_CATEGORIES:
             fileObj = open(self.categoriesPath, 'r')
             return fileObj.readlines()
@@ -94,6 +108,9 @@ class FileHandler:
             return fileObj.readlines()
         elif option == self.F_OPTIONS:
             fileObj = open(self.optionsPath, 'r')
+            return fileObj.readlines()
+        elif option == self.F_OTEXPENSES:
+            fileObj = open(self.otExpensesPath, 'r')
             return fileObj.readlines()
         else:
             print("ERROR: NOT A SUITABLE FILE OPTION IN getData() CALL")
@@ -110,10 +127,11 @@ class FileHandler:
             amount,period,occurences|amount,period,occurences
 
             options:
-            budgetPeriod,opt2 etc
+            budgetPeriod|opt2 etc
+
+            one time expenses:
+            name,amount|name,amount
     '''
-
-
 
 
     ## CATEGORY FILE SPECIFICS
@@ -122,7 +140,7 @@ class FileHandler:
         '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present <- THIS NEEDS TO BE CHECKED FOR'''
         data = self.getData(self.F_CATEGORIES)
         if data is not None and len(data) > 0:
-            #[0] # remove [0] if you change it back to \n separation again
+            # remove [0] if you change it back to \n separation again
             dataStr = data[0]
             
             dictToReturn = {}
@@ -230,3 +248,42 @@ class FileHandler:
             print("NO OPTIONS DATA TO SAVE")
         
         print("finished saving options data")
+
+
+    ######### ONE TIME EXPENSE FILE SPECIFICS
+    
+    def retrieveOTExpensesData(self):
+        '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present <- THIS NEEDS TO BE CHECKED FOR'''
+        data = self.getData(self.F_OTEXPENSES)
+        if data is not None and len(data) > 0:
+            # remove [0] if you change it back to \n separation again
+            dataStr = data[0]
+            
+            dictToReturn = {}
+
+            pairs = dataStr.split('|') # separated into name,amount pairs
+            for pair in pairs:
+                splitPair = pair.split(",") # separated into name and amount elements
+                key = splitPair[0]
+                val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float to 2dp
+                dictToReturn[key] = val
+            return dictToReturn
+        else:
+            return None
+        
+    def saveOTExpensesData(self, dictionary):
+        '''Completely overwrites one time expenses file with the new data in the dictionary'''
+        #clear file first
+        self.overwrite(self.F_OTEXPENSES, "")
+        print("Cleared one time expense save file")
+        i = 0
+        print("Saving new one time expense data")
+        for key in dictionary:
+            # the last element in the dictionary that is being saved should not have a | after it
+            if (i+1) >= len(dictionary):
+                self.appendData(self.F_OTEXPENSES, str(key) + "," + str(dictionary[key]))
+            else:
+                self.appendData(self.F_OTEXPENSES, str(key) + "," + str(dictionary[key]) + "|")
+            i+=1
+
+        print("One time expense data saved")

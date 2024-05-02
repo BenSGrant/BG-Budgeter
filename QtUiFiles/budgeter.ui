@@ -1003,7 +1003,7 @@ QPushButton:pressed {
       <string notr="true">color: red;</string>
      </property>
      <property name="text">
-      <string>ASDJABKSD</string>
+      <string/>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -1182,6 +1182,19 @@ calculated annual income (which is used to calculate your budget)</string>
       </rect>
      </property>
     </widget>
+    <zorder>otPlus100Button</zorder>
+    <zorder>addOTExpenseButton</zorder>
+    <zorder>otExpenseErrLbl</zorder>
+    <zorder>otExpenseAmountLbl</zorder>
+    <zorder>otMinus100Button</zorder>
+    <zorder>oneTimeExpensePageTtl</zorder>
+    <zorder>otExpenseNameInputLE</zorder>
+    <zorder>otMinus10Button</zorder>
+    <zorder>otPlus10Button</zorder>
+    <zorder>otExpenseSpinBox</zorder>
+    <zorder>otExpenseInfoLbl</zorder>
+    <zorder>otExpenseTable</zorder>
+    <zorder>otExpenseBackButton</zorder>
    </widget>
   </widget>
  </widget>

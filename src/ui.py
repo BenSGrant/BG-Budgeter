@@ -45,7 +45,7 @@ class Ui_BGBudgeter(object):
         self.mainPageTtl.setAlignment(QtCore.Qt.AlignCenter)
         self.mainPageTtl.setObjectName("mainPageTtl")
         self.mainPageInfoLbl = QtWidgets.QLabel(self.mainPage)
-        self.mainPageInfoLbl.setGeometry(QtCore.QRect(25, 479, 850, 111))
+        self.mainPageInfoLbl.setGeometry(QtCore.QRect(25, 79, 221, 511))
         self.mainPageInfoLbl.setText("")
         self.mainPageInfoLbl.setObjectName("mainPageInfoLbl")
         self.incomePageButton = QtWidgets.QPushButton(self.mainPage)
@@ -67,7 +67,7 @@ class Ui_BGBudgeter(object):
         self.categoryPageButton.setFont(font)
         self.categoryPageButton.setObjectName("categoryPageButton")
         self.optionsPageButton = QtWidgets.QPushButton(self.mainPage)
-        self.optionsPageButton.setGeometry(QtCore.QRect(275, 280, 350, 80))
+        self.optionsPageButton.setGeometry(QtCore.QRect(275, 380, 350, 80))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(10)
@@ -76,7 +76,7 @@ class Ui_BGBudgeter(object):
         self.optionsPageButton.setFont(font)
         self.optionsPageButton.setObjectName("optionsPageButton")
         self.viewBudgetPageButton = QtWidgets.QPushButton(self.mainPage)
-        self.viewBudgetPageButton.setGeometry(QtCore.QRect(275, 380, 350, 80))
+        self.viewBudgetPageButton.setGeometry(QtCore.QRect(275, 480, 350, 80))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(10)
@@ -84,6 +84,15 @@ class Ui_BGBudgeter(object):
         font.setWeight(50)
         self.viewBudgetPageButton.setFont(font)
         self.viewBudgetPageButton.setObjectName("viewBudgetPageButton")
+        self.oneTimeExpensesPageButton = QtWidgets.QPushButton(self.mainPage)
+        self.oneTimeExpensesPageButton.setGeometry(QtCore.QRect(275, 280, 350, 80))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setWeight(50)
+        self.oneTimeExpensesPageButton.setFont(font)
+        self.oneTimeExpensesPageButton.setObjectName("oneTimeExpensesPageButton")
         self.stackedWidget.addWidget(self.mainPage)
         self.incomeInputPage = QtWidgets.QWidget()
         self.incomeInputPage.setObjectName("incomeInputPage")
@@ -282,7 +291,7 @@ class Ui_BGBudgeter(object):
         self.minus100Button.setGeometry(QtCore.QRect(580, 90, 50, 20))
         self.minus100Button.setObjectName("minus100Button")
         self.categoryErrLbl = QtWidgets.QLabel(self.categoryPage)
-        self.categoryErrLbl.setGeometry(QtCore.QRect(10, 530, 881, 61))
+        self.categoryErrLbl.setGeometry(QtCore.QRect(360, 530, 531, 61))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(12)
@@ -294,7 +303,7 @@ class Ui_BGBudgeter(object):
         self.categoryErrLbl.setAlignment(QtCore.Qt.AlignCenter)
         self.categoryErrLbl.setObjectName("categoryErrLbl")
         self.expenseInfoLbl = QtWidgets.QLabel(self.categoryPage)
-        self.expenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 861, 61))
+        self.expenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 281, 51))
         self.expenseInfoLbl.setObjectName("expenseInfoLbl")
         self.stackedWidget.addWidget(self.categoryPage)
         self.optionsPage = QtWidgets.QWidget()
@@ -436,6 +445,124 @@ class Ui_BGBudgeter(object):
         self.budgetTable.setColumnCount(0)
         self.budgetTable.setRowCount(0)
         self.stackedWidget.addWidget(self.viewBudgetPage)
+        self.oneTimeExpensesPage = QtWidgets.QWidget()
+        self.oneTimeExpensesPage.setObjectName("oneTimeExpensesPage")
+        self.otPlus100Button = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.otPlus100Button.setGeometry(QtCore.QRect(580, 70, 50, 20))
+        self.otPlus100Button.setObjectName("otPlus100Button")
+        self.addOTExpenseButton = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.addOTExpenseButton.setGeometry(QtCore.QRect(730, 65, 160, 40))
+        self.addOTExpenseButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(100,200,100);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(85,185,85);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(60,160,60);\n"
+"    border-color: black;\n"
+"}\n"
+"")
+        self.addOTExpenseButton.setObjectName("addOTExpenseButton")
+        self.otExpenseErrLbl = QtWidgets.QLabel(self.oneTimeExpensesPage)
+        self.otExpenseErrLbl.setGeometry(QtCore.QRect(470, 530, 411, 61))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.otExpenseErrLbl.setFont(font)
+        self.otExpenseErrLbl.setStyleSheet("color: red;")
+        self.otExpenseErrLbl.setText("")
+        self.otExpenseErrLbl.setAlignment(QtCore.Qt.AlignCenter)
+        self.otExpenseErrLbl.setObjectName("otExpenseErrLbl")
+        self.otExpenseBackButton = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.otExpenseBackButton.setGeometry(QtCore.QRect(5, 5, 50, 50))
+        self.otExpenseBackButton.setStyleSheet("QPushButton {\n"
+"    background-color: rgb(250,100,0);\n"
+"    border-radius: 15px;\n"
+"    border-style: solid;\n"
+"    border-width: 2px;\n"
+"    border-color: rgb(50,50,50);\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: rgb(225,75,0);\n"
+"    border-color: rgb(25,25,25);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: rgb(200,50,0);\n"
+"    border-color: black;\n"
+"}\n"
+"")
+        self.otExpenseBackButton.setObjectName("otExpenseBackButton")
+        self.otExpenseAmountLbl = QtWidgets.QLabel(self.oneTimeExpensesPage)
+        self.otExpenseAmountLbl.setGeometry(QtCore.QRect(295, 70, 120, 40))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(9)
+        font.setBold(False)
+        font.setWeight(50)
+        self.otExpenseAmountLbl.setFont(font)
+        self.otExpenseAmountLbl.setObjectName("otExpenseAmountLbl")
+        self.otMinus100Button = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.otMinus100Button.setGeometry(QtCore.QRect(580, 90, 50, 20))
+        self.otMinus100Button.setObjectName("otMinus100Button")
+        self.oneTimeExpensePageTtl = QtWidgets.QLabel(self.oneTimeExpensesPage)
+        self.oneTimeExpensePageTtl.setGeometry(QtCore.QRect(0, 0, 900, 60))
+        font = QtGui.QFont()
+        font.setFamily("Trebuchet MS")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.oneTimeExpensePageTtl.setFont(font)
+        self.oneTimeExpensePageTtl.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(250, 200, 50, 255), stop:1 rgba(255, 80, 100, 255));")
+        self.oneTimeExpensePageTtl.setAlignment(QtCore.Qt.AlignCenter)
+        self.oneTimeExpensePageTtl.setObjectName("oneTimeExpensePageTtl")
+        self.otExpenseNameInputLE = QtWidgets.QLineEdit(self.oneTimeExpensesPage)
+        self.otExpenseNameInputLE.setGeometry(QtCore.QRect(10, 65, 281, 50))
+        self.otExpenseNameInputLE.setObjectName("otExpenseNameInputLE")
+        self.otMinus10Button = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.otMinus10Button.setGeometry(QtCore.QRect(530, 90, 50, 20))
+        self.otMinus10Button.setObjectName("otMinus10Button")
+        self.otPlus10Button = QtWidgets.QPushButton(self.oneTimeExpensesPage)
+        self.otPlus10Button.setGeometry(QtCore.QRect(530, 70, 50, 20))
+        self.otPlus10Button.setObjectName("otPlus10Button")
+        self.otExpenseSpinBox = QtWidgets.QDoubleSpinBox(self.oneTimeExpensesPage)
+        self.otExpenseSpinBox.setGeometry(QtCore.QRect(415, 65, 110, 50))
+        self.otExpenseSpinBox.setMaximum(1000000000.0)
+        self.otExpenseSpinBox.setProperty("value", 50.0)
+        self.otExpenseSpinBox.setObjectName("otExpenseSpinBox")
+        self.otExpenseInfoLbl = QtWidgets.QLabel(self.oneTimeExpensesPage)
+        self.otExpenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 421, 61))
+        self.otExpenseInfoLbl.setObjectName("otExpenseInfoLbl")
+        self.otExpenseTable = QtWidgets.QTableWidget(self.oneTimeExpensesPage)
+        self.otExpenseTable.setGeometry(QtCore.QRect(10, 120, 880, 400))
+        self.otExpenseTable.setObjectName("otExpenseTable")
+        self.otExpenseTable.setColumnCount(0)
+        self.otExpenseTable.setRowCount(0)
+        self.otPlus100Button.raise_()
+        self.addOTExpenseButton.raise_()
+        self.otExpenseErrLbl.raise_()
+        self.otExpenseAmountLbl.raise_()
+        self.otMinus100Button.raise_()
+        self.oneTimeExpensePageTtl.raise_()
+        self.otExpenseNameInputLE.raise_()
+        self.otMinus10Button.raise_()
+        self.otPlus10Button.raise_()
+        self.otExpenseSpinBox.raise_()
+        self.otExpenseInfoLbl.raise_()
+        self.otExpenseTable.raise_()
+        self.otExpenseBackButton.raise_()
+        self.stackedWidget.addWidget(self.oneTimeExpensesPage)
 
         self.retranslateUi(BGBudgeter)
         self.stackedWidget.setCurrentIndex(0)
@@ -446,9 +573,10 @@ class Ui_BGBudgeter(object):
         BGBudgeter.setWindowTitle(_translate("BGBudgeter", "BG-Budgeter"))
         self.mainPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter"))
         self.incomePageButton.setText(_translate("BGBudgeter", "Income"))
-        self.categoryPageButton.setText(_translate("BGBudgeter", "Expense Category Settings"))
+        self.categoryPageButton.setText(_translate("BGBudgeter", "Regular Expense Category Settings"))
         self.optionsPageButton.setText(_translate("BGBudgeter", "Extra Options"))
         self.viewBudgetPageButton.setText(_translate("BGBudgeter", "View Budget"))
+        self.oneTimeExpensesPageButton.setText(_translate("BGBudgeter", "One-Time Expenses"))
         self.incomePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Choose Your Income Sources"))
         self.incomeBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.addIncomeButton.setText(_translate("BGBudgeter", "Add Income Source"))
@@ -471,7 +599,8 @@ class Ui_BGBudgeter(object):
         self.minus10Button.setText(_translate("BGBudgeter", "-10"))
         self.plus100Button.setText(_translate("BGBudgeter", "+100"))
         self.minus100Button.setText(_translate("BGBudgeter", "-100"))
-        self.expenseInfoLbl.setText(_translate("BGBudgeter", "The expense amount is how much you expect to pay during each budget period"))
+        self.expenseInfoLbl.setText(_translate("BGBudgeter", "The expense amount is how much you expect\n"
+"to pay during each budget period"))
         self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Extra Options"))
         self.optionsBackButton.setText(_translate("BGBudgeter", "BACK"))
         self.weeklyBudgetRadioButton.setText(_translate("BGBudgeter", "Weekly"))
@@ -483,6 +612,17 @@ class Ui_BGBudgeter(object):
 "the budget will cover"))
         self.viewBudgetPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  View Your Budget"))
         self.viewBudgetBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.otPlus100Button.setText(_translate("BGBudgeter", "+100"))
+        self.addOTExpenseButton.setText(_translate("BGBudgeter", "ADD"))
+        self.otExpenseBackButton.setText(_translate("BGBudgeter", "BACK"))
+        self.otExpenseAmountLbl.setText(_translate("BGBudgeter", "Expense Amount:"))
+        self.otMinus100Button.setText(_translate("BGBudgeter", "-100"))
+        self.oneTimeExpensePageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Specify Your One Time Expenses"))
+        self.otExpenseNameInputLE.setPlaceholderText(_translate("BGBudgeter", "Expense Name"))
+        self.otMinus10Button.setText(_translate("BGBudgeter", "-10"))
+        self.otPlus10Button.setText(_translate("BGBudgeter", "+10"))
+        self.otExpenseInfoLbl.setText(_translate("BGBudgeter", "For example, £600 on a new laptop. This will be deducted from your\n"
+"calculated annual income (which is used to calculate your budget)"))
 
 
 if __name__ == "__main__":
