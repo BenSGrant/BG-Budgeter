@@ -3,8 +3,6 @@ from ui import Ui_BGBudgeter
 from incomeSourceTile import IncomeSourceTile
 
 class IncomeManager:
-
-
     def __init__(self, dialog : Ui_BGBudgeter):
         self.ui = dialog
 
