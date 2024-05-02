@@ -16,8 +16,6 @@ class IncomeManager:
                                      "Monthly", "Annually",
                                      "Student Maintenance Loan (UK)"] # this needs to be updated if the options change
         
-
-
     ## setup
     def loadIncomeSources(self):
         '''Loads saved data and updates UI accordingly'''
