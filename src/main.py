@@ -4,7 +4,7 @@ from budgetCalc import BudgetCalculator
 from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
-from categories import RegularExpenseManager
+from expenses import RegularExpenseManager
 from income import IncomeManager
 from options import OptionManager
 from ui import *

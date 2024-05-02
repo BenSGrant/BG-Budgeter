@@ -1,4 +1,4 @@
-from categories import RegularExpenseManager
+from expenses import RegularExpenseManager
 from options import OptionManager
 from ui import Ui_BGBudgeter
 from income import IncomeManager
