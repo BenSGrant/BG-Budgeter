@@ -4,7 +4,7 @@ from fileHandler import FileHandler
 
 from ui import Ui_BGBudgeter
 
-class CategoryManager:
+class RegularExpenseManager:
     def __init__(self, dialog : Ui_BGBudgeter):
         self.ui = dialog
 

@@ -1,4 +1,4 @@
-from categories import CategoryManager
+from categories import RegularExpenseManager
 from options import OptionManager
 from ui import Ui_BGBudgeter
 from income import IncomeManager
@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QHeaderView, QTableWidgetItem
 from PyQt5.QtGui import QColor
 
 class BudgetCalculator:
-    def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : CategoryManager, optMan : OptionManager):
+    def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : RegularExpenseManager, optMan : OptionManager):
         '''MUST be created after loading all save data'''
         self.ui = dialog
 

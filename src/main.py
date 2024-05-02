@@ -4,7 +4,7 @@ from budgetCalc import BudgetCalculator
 from fileHandler import FileHandler
 from PyQt5.QtWidgets import QDialog
 
-from categories import CategoryManager
+from categories import RegularExpenseManager
 from income import IncomeManager
 from options import OptionManager
 from ui import *
@@ -16,7 +16,7 @@ class BGBudgeter(QDialog):
         self.ui.setupUi(self)
     
         ######################################################################### USER DEFINED METHODS/VARIABLES
-        self.catMan = CategoryManager(self.ui)
+        self.catMan = RegularExpenseManager(self.ui)
         self.catMan.setupTable()
         self.fileHand = FileHandler()
         self.incMan = IncomeManager(self.ui)
