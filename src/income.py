@@ -60,7 +60,6 @@ class IncomeManager:
     def onSubHundred(self, tile : IncomeSourceTile):
         if tile.incomeAmountSpinBox.value() - 100 >= tile.incomeAmountSpinBox.minimum():
             tile.incomeAmountSpinBox.setValue(tile.incomeAmountSpinBox.value() - 100)
-            
 
     def onAddThousand(self, tile : IncomeSourceTile):
         if tile.incomeAmountSpinBox.value() + 1000 <= tile.incomeAmountSpinBox.maximum():
