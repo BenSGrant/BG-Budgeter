@@ -90,5 +90,8 @@ class BudgetCalculator:
         if savings < 0: # not enough income for the budget
             self.ui.budgetTable.item(self.currentRowCount, 0).setBackground(QColor(250,50,50))
             self.ui.budgetTable.item(self.currentRowCount, 1).setBackground(QColor(250,50,50))
+        elif savings > 0: # money is being saved
+            self.ui.budgetTable.item(self.currentRowCount, 0).setBackground(QColor(50,200,100))
+            self.ui.budgetTable.item(self.currentRowCount, 1).setBackground(QColor(50,200,100))
 
         self.currentRowCount += 1
