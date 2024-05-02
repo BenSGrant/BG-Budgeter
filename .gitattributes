@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# make ui.py ignored in language stats
+src/ui.py linguist-vendored=true
