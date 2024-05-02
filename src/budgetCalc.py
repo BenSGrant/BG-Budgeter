@@ -1,4 +1,4 @@
-from expenses import RegularExpenseManager
+from expenses import OneTimeExpenseManager, RegularExpenseManager
 from options import OptionManager
 from ui import Ui_BGBudgeter
 from income import IncomeManager
@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QHeaderView, QTableWidgetItem
 from PyQt5.QtGui import QColor
 
 class BudgetCalculator:
-    def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : RegularExpenseManager, optMan : OptionManager):
+    def __init__(self, dialog : Ui_BGBudgeter, incMan : IncomeManager, catMan : RegularExpenseManager, optMan : OptionManager, OTEMan : OneTimeExpenseManager):
         '''MUST be created after loading all save data'''
         self.ui = dialog
 
@@ -15,6 +15,7 @@ class BudgetCalculator:
         self.catMan = catMan
         self.incMan = incMan
         self.optMan = optMan
+        self.OTEMan = OTEMan
 
         self.perCategoryBudget = {}
 
@@ -42,6 +43,8 @@ class BudgetCalculator:
         '''Takes all income sources and calculates how much is received per year'''
         totalIncome = 0
 
+
+        # take the sum of all income
         for income in self.incMan.incomeSrcs:
             amount = income[0]
             period = income[1]
@@ -53,6 +56,12 @@ class BudgetCalculator:
                 print("Student maintenance loan detected, (option: " + period + ")")
                 totalIncome += amount
         
+        # subtract one time expenses
+
+        for key in self.OTEMan.otExpenseDict:
+            totalIncome -= self.OTEMan.otExpenseDict[key]
+
+
         return totalIncome
     
     def calculateSavings(self):

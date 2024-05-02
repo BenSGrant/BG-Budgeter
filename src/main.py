@@ -25,7 +25,7 @@ class BGBudgeter(QDialog):
         self.optMan.loadSaveData()
         self.OTEMan = OneTimeExpenseManager(self.ui)
         self.OTEMan.setupTable()
-        self.budgetCalculator = BudgetCalculator(self.ui, self.incMan, self.catMan, self.optMan)
+        self.budgetCalculator = BudgetCalculator(self.ui, self.incMan, self.catMan, self.optMan, self.OTEMan)
         self.budgetCalculator.setupTable()
 
         self.setupPageButtons()
