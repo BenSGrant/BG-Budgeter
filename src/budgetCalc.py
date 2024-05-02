@@ -80,6 +80,12 @@ class BudgetCalculator:
             if self.currentRowCount < self.maxRowCount: # < not <= to account for the savings row
                 self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
                 self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.catMan.categoryDict[key])))
+
+                # alternating colours - every odd row is grey, even is white (except for savings row if <0 or >0)
+                if self.currentRowCount % 2 == 1:
+                    self.ui.budgetTable.item(self.currentRowCount, 0).setBackground(QColor(210,210,210))
+                    self.ui.budgetTable.item(self.currentRowCount, 1).setBackground(QColor(210,210,210))
+
                 self.currentRowCount += 1
 
         # add savings
