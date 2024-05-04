@@ -62,8 +62,8 @@ class RegularExpenseManager:
         #retrieve inputs
         name = self.ui.categoryNameInputLE.text()
 
-        ## check if valid
-        if (not name in self.categoryDict) and (not name in self.reservedCategories):
+        ## check if it exists or not and if the name is empty
+        if (not name in self.categoryDict) and (not name in self.reservedCategories) and (len(name) > 0):
             amount = self.ui.categoryAmountSpinBox.value()
             self.categoryDict[name] = amount
             self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
@@ -75,6 +75,8 @@ class RegularExpenseManager:
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: You have already used this category name")
         elif name in self.reservedCategories:
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: This category name is reserved by the app")
+        elif len(name) <= 0:
+            self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: The name field is empty")
         else:
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: Not sure why, please report the bug on github\nalong with a screenshot of the page")
 
