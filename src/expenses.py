@@ -175,11 +175,11 @@ class OneTimeExpenseManager:
             self.fileHand.saveOTExpensesData(self.otExpenseDict)
 
         elif name in self.otExpenseDict:
-            self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: You have already used this category name")
+            self.ui.otExpenseErrLbl.setText("INVALID EXPENSE NAME: You have already used this category name")
         elif len(name) <= 0:
-            self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: The name field is empty")
+            self.ui.otExpenseErrLbl.setText("INVALID EXPENSE NAME: The name field is empty")
         else:
-            self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: Not sure why, please report the bug on github\nalong with a screenshot of the page")
+            self.ui.otExpenseErrLbl.setText("INVALID EXPENSE NAME: Not sure why, please report the bug on github\nalong with a screenshot of the page")
 
         self.ui.otExpenseNameInputLE.clear()
         self.ui.otExpenseSpinBox.setValue(50.0)
