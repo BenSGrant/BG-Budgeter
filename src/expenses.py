@@ -20,7 +20,7 @@ class RegularExpenseManager:
 
         # setup the categories table
         self.maxRowCount=30
-        self.ui.categoryTable.setColumnCount(2)
+        self.ui.categoryTable.setColumnCount(3)
         self.ui.categoryTable.setRowCount(self.maxRowCount)
         self.ui.categoryTable.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch) # resize to fit widget
         self.currentRowCount = 0
@@ -35,7 +35,7 @@ class RegularExpenseManager:
 
     def setupTable(self):
         '''Intialises the category table. Make sure retrieveStoredCategories() is called before this'''
-        columns = ["Expense", "Amount"]
+        columns = ["Expense", "Amount", "Paying Period"]
         self.ui.categoryTable.setHorizontalHeaderLabels(columns)
         for key in self.categoryDict:
             if self.currentRowCount <= self.maxRowCount:

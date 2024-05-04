@@ -121,7 +121,7 @@ class FileHandler:
     '''     File saving convention:
             
             categories:
-            name,amount|name,amount
+            name,amount,period|name,amount,period
 
             income:
             amount,period,occurences|amount,period,occurences
