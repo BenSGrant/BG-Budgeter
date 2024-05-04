@@ -165,8 +165,8 @@ class OneTimeExpenseManager:
         #retrieve inputs
         name = self.ui.otExpenseNameInputLE.text()
 
-        ## check if valid
-        if (not name in self.otExpenseDict):
+        ## check if the name is usable or not
+        if (not name in self.otExpenseDict) and (len(name) > 0):
             amount = self.ui.otExpenseSpinBox.value()
             self.otExpenseDict[name] = amount
             self.ui.otExpenseTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
@@ -176,6 +176,8 @@ class OneTimeExpenseManager:
 
         elif name in self.otExpenseDict:
             self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: You have already used this category name")
+        elif len(name) <= 0:
+            self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: The name field is empty")
         else:
             self.ui.otExpenseErrLbl.setText("INVALID ONE TIME EXPENSE NAME: Not sure why, please report the bug on github\nalong with a screenshot of the page")
 
