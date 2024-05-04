@@ -985,9 +985,9 @@ QPushButton:pressed {
     <widget class="QLabel" name="otExpenseErrLbl">
      <property name="geometry">
       <rect>
-       <x>470</x>
+       <x>350</x>
        <y>530</y>
-       <width>411</width>
+       <width>530</width>
        <height>61</height>
       </rect>
      </property>
@@ -1163,13 +1163,14 @@ QPushButton:pressed {
       <rect>
        <x>20</x>
        <y>530</y>
-       <width>421</width>
+       <width>291</width>
        <height>61</height>
       </rect>
      </property>
      <property name="text">
-      <string>For example, £600 on a new laptop. This will be deducted from your
-calculated annual income (which is used to calculate your budget)</string>
+      <string>For example, £600 on a new laptop. This will be
+deducted from your calculated annual income 
+(which is used to calculate your budget)</string>
      </property>
     </widget>
     <widget class="QTableWidget" name="otExpenseTable">

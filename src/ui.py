@@ -472,7 +472,7 @@ class Ui_BGBudgeter(object):
 "")
         self.addOTExpenseButton.setObjectName("addOTExpenseButton")
         self.otExpenseErrLbl = QtWidgets.QLabel(self.oneTimeExpensesPage)
-        self.otExpenseErrLbl.setGeometry(QtCore.QRect(470, 530, 411, 61))
+        self.otExpenseErrLbl.setGeometry(QtCore.QRect(350, 530, 530, 61))
         font = QtGui.QFont()
         font.setFamily("Trebuchet MS")
         font.setPointSize(12)
@@ -542,7 +542,7 @@ class Ui_BGBudgeter(object):
         self.otExpenseSpinBox.setProperty("value", 50.0)
         self.otExpenseSpinBox.setObjectName("otExpenseSpinBox")
         self.otExpenseInfoLbl = QtWidgets.QLabel(self.oneTimeExpensesPage)
-        self.otExpenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 421, 61))
+        self.otExpenseInfoLbl.setGeometry(QtCore.QRect(20, 530, 291, 61))
         self.otExpenseInfoLbl.setObjectName("otExpenseInfoLbl")
         self.otExpenseTable = QtWidgets.QTableWidget(self.oneTimeExpensesPage)
         self.otExpenseTable.setGeometry(QtCore.QRect(10, 120, 880, 400))
@@ -621,8 +621,9 @@ class Ui_BGBudgeter(object):
         self.otExpenseNameInputLE.setPlaceholderText(_translate("BGBudgeter", "Expense Name"))
         self.otMinus10Button.setText(_translate("BGBudgeter", "-10"))
         self.otPlus10Button.setText(_translate("BGBudgeter", "+10"))
-        self.otExpenseInfoLbl.setText(_translate("BGBudgeter", "For example, £600 on a new laptop. This will be deducted from your\n"
-"calculated annual income (which is used to calculate your budget)"))
+        self.otExpenseInfoLbl.setText(_translate("BGBudgeter", "For example, £600 on a new laptop. This will be\n"
+"deducted from your calculated annual income \n"
+"(which is used to calculate your budget)"))
 
 
 if __name__ == "__main__":
