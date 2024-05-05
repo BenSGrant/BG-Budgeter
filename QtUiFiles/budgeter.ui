@@ -666,11 +666,6 @@ to pay during each budget period</string>
      </item>
      <item>
       <property name="text">
-       <string>Fortnightly</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
        <string>Monthly</string>
       </property>
      </item>
@@ -686,7 +681,7 @@ to pay during each budget period</string>
      </item>
      <item>
       <property name="text">
-       <string>Once a Year</string>
+       <string>Annually</string>
       </property>
      </item>
     </widget>

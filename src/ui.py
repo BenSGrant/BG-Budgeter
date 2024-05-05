@@ -313,7 +313,6 @@ class Ui_BGBudgeter(object):
         self.categoryPeriodComboBox.addItem("")
         self.categoryPeriodComboBox.addItem("")
         self.categoryPeriodComboBox.addItem("")
-        self.categoryPeriodComboBox.addItem("")
         self.categoryPeriodOptionLbl = QtWidgets.QLabel(self.categoryPage)
         self.categoryPeriodOptionLbl.setGeometry(QtCore.QRect(540, 70, 81, 40))
         font = QtGui.QFont()
@@ -618,11 +617,10 @@ class Ui_BGBudgeter(object):
         self.expenseInfoLbl.setText(_translate("BGBudgeter", "The expense amount is how much you expect\n"
 "to pay during each budget period"))
         self.categoryPeriodComboBox.setItemText(0, _translate("BGBudgeter", "Weekly"))
-        self.categoryPeriodComboBox.setItemText(1, _translate("BGBudgeter", "Fortnightly"))
-        self.categoryPeriodComboBox.setItemText(2, _translate("BGBudgeter", "Monthly"))
-        self.categoryPeriodComboBox.setItemText(3, _translate("BGBudgeter", "Every 3 Months"))
-        self.categoryPeriodComboBox.setItemText(4, _translate("BGBudgeter", "Every 6 Months"))
-        self.categoryPeriodComboBox.setItemText(5, _translate("BGBudgeter", "Once a Year"))
+        self.categoryPeriodComboBox.setItemText(1, _translate("BGBudgeter", "Monthly"))
+        self.categoryPeriodComboBox.setItemText(2, _translate("BGBudgeter", "Every 3 Months"))
+        self.categoryPeriodComboBox.setItemText(3, _translate("BGBudgeter", "Every 6 Months"))
+        self.categoryPeriodComboBox.setItemText(4, _translate("BGBudgeter", "Annually"))
         self.categoryPeriodOptionLbl.setText(_translate("BGBudgeter", "How often\n"
 "you pay:"))
         self.optionsPageTtl.setText(_translate("BGBudgeter", "BG-Budgeter  -  Extra Options"))
