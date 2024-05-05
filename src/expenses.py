@@ -12,7 +12,8 @@ class RegularExpenseManager:
         self.fileHand = FileHandler()
 
         ## variables
-        self.categoryDict = {}
+        #self.categoryDict = {}
+        self.categoryList = []
         self.reservedCategories = ["Savings"]
 
         # initialise data
@@ -28,19 +29,20 @@ class RegularExpenseManager:
     # setup functions
     def retrieveStoredCategories(self):
         '''Retrieves the save data and stores it in a dictionary. If the FileHandler function returns None, it is checked here and the dictionary is not set to None but rather to an empty dictionary'''
-        self.categoryDict = self.fileHand.retrieveCategoriesData()
-        if self.categoryDict is None: # if there is no data in the file then set to empty dictionary
-            self.categoryDict = {}
+        self.categoryList = self.fileHand.retrieveCategoriesData()
+        if self.categoryList is None: # if there is no data in the file then set to empty dictionary
+            self.categoryList = []
 
 
     def setupTable(self):
         '''Intialises the category table. Make sure retrieveStoredCategories() is called before this'''
         columns = ["Expense", "Amount", "Paying Period"]
         self.ui.categoryTable.setHorizontalHeaderLabels(columns)
-        for key in self.categoryDict:
+        for expense in self.categoryList:
             if self.currentRowCount <= self.maxRowCount:
-                self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
-                self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.categoryDict[key])))
+                self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(expense[0]))
+                self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(expense[1])))
+                self.ui.categoryTable.setItem(self.currentRowCount, 2, QTableWidgetItem(expense[2]))
                 self.currentRowCount += 1
 
         self.ui.categoryTable.itemClicked.connect(self.onItemClicked)
@@ -51,8 +53,20 @@ class RegularExpenseManager:
         '''On a cell being clicked, the category is removed from the list'''
         row = cell.row()
         categoryName = self.ui.categoryTable.item(row, 0).text() # retrieve text from left column
-        del self.categoryDict[categoryName] # delete from the dictionary
-        self.fileHand.saveCategoriesData(self.categoryDict)
+        index = 0
+        for expense in self.categoryList:
+            if expense[0] == categoryName:
+                break
+            index += 1
+            if index + 1 >= len(self.categoryList):
+                index = -1
+                break
+        
+        if index >= 0:
+            del self.categoryList[index]
+        else:
+            print("THE ITEM YOU ARE REMOVING FROM THE LIST DOES NOT EXIST")
+        self.fileHand.saveCategoriesData(self.categoryList)
         self.ui.categoryTable.removeRow(row)
         self.currentRowCount -= 1 # make sure that current row pointer points to the first empty one
         
@@ -62,16 +76,23 @@ class RegularExpenseManager:
         #retrieve inputs
         name = self.ui.categoryNameInputLE.text()
 
+        print(any(name in i for i in self.categoryList))
+
         ## check if it exists or not and if the name is empty
-        if (not name in self.categoryDict) and (not name in self.reservedCategories) and (len(name) > 0):
+
+
+        ##any(name in i for i in self.categoryList) tests if the name exists in a tuple in the tuple list
+        if (not any(name in i for i in self.categoryList)) and (not name in self.reservedCategories) and (len(name) > 0):
             amount = self.ui.categoryAmountSpinBox.value()
-            self.categoryDict[name] = amount
+            period = self.ui.categoryPeriodComboBox.currentText()
+            self.categoryList.append((name, round(amount, 2), period))
             self.ui.categoryTable.setItem(self.currentRowCount, 0, QTableWidgetItem(name))
             self.ui.categoryTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(amount)))
+            self.ui.categoryTable.setItem(self.currentRowCount, 2, QTableWidgetItem(period))
             self.currentRowCount += 1
-            self.fileHand.saveCategoriesData(self.categoryDict)
+            self.fileHand.saveCategoriesData(self.categoryList)
 
-        elif name in self.categoryDict:
+        elif any(name in i for i in self.categoryList):
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: You have already used this category name")
         elif name in self.reservedCategories:
             self.ui.categoryErrLbl.setText("INVALID CATEGORY NAME: This category name is reserved by the app")
