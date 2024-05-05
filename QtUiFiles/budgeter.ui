@@ -621,7 +621,7 @@ QPushButton:pressed {
      <property name="font">
       <font>
        <family>Trebuchet MS</family>
-       <pointsize>12</pointsize>
+       <pointsize>9</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
@@ -1054,7 +1054,7 @@ QPushButton:pressed {
      <property name="font">
       <font>
        <family>Trebuchet MS</family>
-       <pointsize>12</pointsize>
+       <pointsize>9</pointsize>
        <weight>75</weight>
        <bold>true</bold>
       </font>
