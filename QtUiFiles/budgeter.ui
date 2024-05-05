@@ -650,7 +650,7 @@ QPushButton:pressed {
 to pay during each budget period</string>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="categoryPeriodComboBox">
      <property name="geometry">
       <rect>
        <x>620</x>
@@ -690,7 +690,7 @@ to pay during each budget period</string>
       </property>
      </item>
     </widget>
-    <widget class="QLabel" name="label">
+    <widget class="QLabel" name="categoryPeriodOptionLbl">
      <property name="geometry">
       <rect>
        <x>540</x>
