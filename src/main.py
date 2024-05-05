@@ -53,7 +53,6 @@ class BGBudgeter(QDialog):
         self.ui.viewBudgetBackButton.clicked.connect(self.loadHomePage)
         self.ui.otExpenseBackButton.clicked.connect(self.loadHomePage)
 
-
     def setupCategoryPageButtons(self):
         '''Connects expense category page buttons to their actions'''
         self.ui.addCategoryButton.clicked.connect(self.catMan.onAddCategory)

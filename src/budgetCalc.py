@@ -18,7 +18,7 @@ class BudgetCalculator:
         self.OTEMan = OTEMan
 
         self.perCategoryBudget = {}
-
+        self.perPeriodRegularExpenses = {}
 
         
         # budget table class variables
@@ -38,6 +38,56 @@ class BudgetCalculator:
 
     ###### INCOME CALCULATIONS
 
+    def calculatePerPeriodRegularExpenses(self):
+        '''For example, monthly expense converted to weekly amount'''
+        for expense in self.catMan.categoryList:
+            amount = expense[1] # default to budget period amount
+            if expense[2].lower() == "weekly" and self.optMan.budgetPeriod.lower() == "fortnightly":
+                # weekly -> fortnightly
+                amount = round(expense[1] * 2, 2)
+            elif expense[2].lower() == "weekly" and self.optMan.budgetPeriod.lower() == "monthly":
+                #convert weekly amount to monthly
+                amount = round((expense[1] * 52) / 12, 2)
+                
+            elif expense[2].lower() == "monthly" and self.optMan.budgetPeriod.lower() == "weekly":
+                #convert monthly amount to weekly
+                amount = round((expense[1] * 12) / 52, 2)
+            elif expense[2].lower() == "monthly" and self.optMan.budgetPeriod.lower() == "fortnightly":
+                #convert monthly amount to fortnightly
+                amount = round((expense[1] * 12) / 26, 2)
+                
+            elif expense[2].lower() == "every 3 months" and self.optMan.budgetPeriod.lower() == "weekly":
+                #3months -> weekly
+                amount = round((expense[1] * 4) / 52, 2)
+            elif expense[2].lower() == "every 3 months" and self.optMan.budgetPeriod.lower() == "fortnightly":
+                #3months -> fortnightly
+                amount = round((expense[1] * 4) / 26, 2)
+            elif expense[2].lower() == "every 3 months" and self.optMan.budgetPeriod.lower() == "monthly":
+                #convert 3monthly to monthly
+                amount = round((expense[1]) / 3, 2)
+                
+            elif expense[2].lower() == "every 6 months" and self.optMan.budgetPeriod.lower() == "weekly":
+                #6months -> weekly
+                amount = round((expense[1] * 2) / 52, 2)
+            elif expense[2].lower() == "every 6 months" and self.optMan.budgetPeriod.lower() == "fortnightly":
+                #6months -> fortnightly
+                amount = round((expense[1] * 2) / 26, 2)
+            elif expense[2].lower() == "every 6 months" and self.optMan.budgetPeriod.lower() == "monthly":
+                #convert biannually to monthly
+                amount = round((expense[1]) / 6, 2)
+                
+            elif expense[2].lower() == "annually" and self.optMan.budgetPeriod.lower() == "weekly":
+                #yearly -> weekly
+                amount = round((expense[1]) / 52, 2)
+            elif expense[2].lower() == "annually" and self.optMan.budgetPeriod.lower() == "fortnightly":
+                #yearly -> fortnightly
+                amount = round((expense[1]) / 26, 2)
+            elif expense[2].lower() == "annually" and self.optMan.budgetPeriod.lower() == "monthly":
+                #convert annually to monthly
+                amount = round((expense[1]) / 12, 2)
+
+            self.perPeriodRegularExpenses[expense[0]] = amount
+            
 
     def calculateTotalYearlyIncome(self):
         '''Takes all income sources and calculates how much is received per year'''
@@ -58,8 +108,8 @@ class BudgetCalculator:
         
         # subtract one time expenses
 
-        for key in self.OTEMan.otExpenseDict:
-            totalIncome -= self.OTEMan.otExpenseDict[key]
+        for key in self.perPeriodRegularExpenses:
+            totalIncome -= self.perPeriodRegularExpenses[key]
 
 
         return totalIncome
@@ -69,17 +119,21 @@ class BudgetCalculator:
         incomeForThePeriod = self.calculateTotalYearlyIncome() / self.optMan.budgetPeriodOccurences
         leftovers = incomeForThePeriod # technically savings
 
-        for key in self.catMan.categoryDict:
-            leftovers -= self.catMan.categoryDict[key]
+        for key in self.perPeriodRegularExpenses:
+            leftovers -= self.perPeriodRegularExpenses[key]
         return round(leftovers,2)
     
     def displayTotalBudget(self):
         self.ui.budgetTable.clearContents()
         self.currentRowCount = 0
-        for key in self.catMan.categoryDict:
+
+        self.calculatePerPeriodRegularExpenses()
+        for expenseTuple in self.catMan.categoryList:
             if self.currentRowCount < self.maxRowCount: # < not <= to account for the savings row
-                self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(key))
-                self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.catMan.categoryDict[key])))
+
+                self.ui.budgetTable.setItem(self.currentRowCount, 0, QTableWidgetItem(expenseTuple[0]))
+                self.ui.budgetTable.setItem(self.currentRowCount, 1, QTableWidgetItem(str(self.perPeriodRegularExpenses[expenseTuple[0]])))
+            
 
                 # alternating colours - every odd row is grey, even is white (except for savings row if <0 or >0)
                 if self.currentRowCount % 2 == 1:
