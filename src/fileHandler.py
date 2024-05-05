@@ -137,37 +137,37 @@ class FileHandler:
     ## CATEGORY FILE SPECIFICS
 
     def retrieveCategoriesData(self):
-        '''Takes all data from the file and puts it back into dictionary form. Returns None if there is no data present <- THIS NEEDS TO BE CHECKED FOR'''
+        '''Takes all data from the file and puts it back into a list of tuples of 3 elements. name,amount,period. Returns None if there is no data present <- THIS NEEDS TO BE CHECKED FOR'''
         data = self.getData(self.F_CATEGORIES)
         if data is not None and len(data) > 0:
             # remove [0] if you change it back to \n separation again
             dataStr = data[0]
             
-            dictToReturn = {}
+            listToReturn = []
 
-            pairs = dataStr.split('|') # separated into name,amount pairs
-            for pair in pairs:
-                splitPair = pair.split(",") # separated into name and amount elements
-                key = splitPair[0]
-                val = round(float(splitPair[1]), 2) # will be a value for money so store as rounded float to 2dp
-                dictToReturn[key] = val
-            return dictToReturn
+            triplets = dataStr.split('|') # separated into name,amount,period triplets
+            for expenseData in triplets:
+                splitPair = expenseData.split(",") # separated into name, amount and period elements
+                tupleCategory = (splitPair[0],float(splitPair[1]),splitPair[2])
+                listToReturn.append(tupleCategory)
+                
+            return listToReturn
         else:
             return None
 
-    def saveCategoriesData(self, dictionary):
-        '''Completely overwrites categories file with the new data in the dictionary'''
+    def saveCategoriesData(self, listData):
+        '''Completely overwrites categories file with the new data in the list of tuples'''
         #clear file first
         self.overwrite(self.F_CATEGORIES, "")
         print("Cleared expense category save file")
         i = 0
         print("Saving new expense category data")
-        for key in dictionary:
+        for expenseTuple in listData:
             # the last element in the dictionary that is being saved should not have a | after it
-            if (i+1) >= len(dictionary):
-                self.appendData(self.F_CATEGORIES, str(key) + "," + str(dictionary[key]))
+            if (i+1) >= len(listData):
+                self.appendData(self.F_CATEGORIES, str(expenseTuple[0]) + "," + str(expenseTuple[1]) + "," + str(expenseTuple[2]))
             else:
-                self.appendData(self.F_CATEGORIES, str(key) + "," + str(dictionary[key]) + "|")
+                self.appendData(self.F_CATEGORIES, str(expenseTuple[0]) + "," + str(expenseTuple[1]) + "," + str(expenseTuple[2]) + "|")
             i+=1
 
         print("Expense category data saved")
