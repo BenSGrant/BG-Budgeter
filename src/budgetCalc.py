@@ -108,8 +108,8 @@ class BudgetCalculator:
         
         # subtract one time expenses
 
-        for key in self.perPeriodRegularExpenses:
-            totalIncome -= self.perPeriodRegularExpenses[key]
+        for key in self.OTEMan.otExpenseDict:
+            totalIncome -= self.OTEMan.otExpenseDict[key]
 
 
         return totalIncome
@@ -121,6 +121,7 @@ class BudgetCalculator:
 
         for key in self.perPeriodRegularExpenses:
             leftovers -= self.perPeriodRegularExpenses[key]
+
         return round(leftovers,2)
     
     def displayTotalBudget(self):
