@@ -54,15 +54,19 @@ class RegularExpenseManager:
         row = cell.row()
         categoryName = self.ui.categoryTable.item(row, 0).text() # retrieve text from left column
         index = 0
+        
         for expense in self.categoryList:
             if expense[0] == categoryName:
+               # print(expense[0])
                 break
-            index += 1
             if index + 1 >= len(self.categoryList):
                 index = -1
+                print(expense)
                 break
+            index += 1
         
         if index >= 0:
+            print("removing", expense)
             del self.categoryList[index]
         else:
             print("THE ITEM YOU ARE REMOVING FROM THE LIST DOES NOT EXIST")
@@ -75,8 +79,6 @@ class RegularExpenseManager:
         '''When the add button is clicked, a category is added to the table'''
         #retrieve inputs
         name = self.ui.categoryNameInputLE.text()
-
-        print(any(name in i for i in self.categoryList))
 
         ## check if it exists or not and if the name is empty
 
